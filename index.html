@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blackmores TikTok Shop — Full Dashboard 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--teal:#00837A;--teal-light:#4DB8B2;--teal-dark:#006B63;--navy:#1B2A4A;--navy-light:#2E4170;--white:#FFF;--grey-bg:#F4F5F3;--grey-text:#6B7280;--black:#111;--red:#DC2626;--red-bg:#FEF2F2;--green:#72C02C;--amber:#F59E0B;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Montserrat',sans-serif;background:var(--grey-bg);color:var(--black);font-size:13px;}
+/* NAV */
+.topnav{background:var(--navy);height:56px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;position:sticky;top:0;z-index:200;box-shadow:0 2px 16px rgba(0,0,0,.2);}
+.brand{border-left:3px solid var(--teal);padding-left:12px;line-height:1.2;}
+.brand .b1{font-size:8px;color:var(--grey-text);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;}
+.brand .b2{font-size:16px;color:#fff;font-weight:800;}
+.nav-tabs{display:flex;gap:4px;}
+.ntab{background:transparent;border:none;color:var(--grey-text);font-family:inherit;font-size:11px;font-weight:600;padding:7px 14px;border-radius:20px;cursor:pointer;text-transform:uppercase;letter-spacing:.5px;transition:all .2s;}
+.ntab:hover,.ntab.active{background:var(--teal);color:#fff;}
+.nav-meta{font-size:11px;color:var(--grey-text);font-weight:500;}
+/* LAYOUT */
+.page{max-width:1300px;margin:0 auto;padding:28px 36px 60px;}
+/* PAGE HEADER */
+.ph{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;}
+.ph-title{font-size:21px;font-weight:800;color:var(--navy);}
+.ph-sub{font-size:12px;color:var(--grey-text);margin-top:3px;font-weight:500;}
+.badge{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1.5px solid var(--teal);color:var(--teal);padding:5px 14px;border-radius:20px;font-size:11px;font-weight:700;}
+.mega-tag{background:var(--teal);color:#fff;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;text-transform:uppercase;}
+.bau-tag{background:var(--navy);color:#fff;padding:2px 7px;border-radius:4px;font-size:9px;font-weight:700;text-transform:uppercase;}
+/* FLAG */
+.flag{background:var(--red-bg);border-left:4px solid var(--red);border-radius:8px;padding:10px 16px;margin-bottom:20px;font-size:11px;color:#7F1D1D;font-weight:500;}
+/* SECTION PILL */
+.spill{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;}
+.pill{background:var(--teal);color:#fff;font-size:11px;font-weight:700;padding:4px 13px;border-radius:8px;text-transform:uppercase;letter-spacing:.5px;}
+.pill-sub{font-size:11px;color:var(--grey-text);font-style:italic;font-weight:500;}
+/* KPI GRID */
+.kgrid{display:grid;gap:14px;margin-bottom:22px;}
+.kg5{grid-template-columns:repeat(5,1fr);}
+.kg4{grid-template-columns:repeat(4,1fr);}
+.kg3{grid-template-columns:repeat(3,1fr);}
+.kcard{background:#fff;border-radius:14px;padding:18px 16px 14px;border-left:4px solid var(--teal);box-shadow:0 2px 10px rgba(0,0,0,.05);transition:transform .15s;}
+.kcard:hover{transform:translateY(-2px);}
+.kcard.navy{border-left-color:var(--navy);}
+.kcard.green{border-left-color:var(--green);}
+.kcard.amber{border-left-color:var(--amber);}
+.klab{font-size:9px;font-weight:600;color:var(--grey-text);text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px;}
+.kval{font-size:24px;font-weight:800;color:var(--teal);line-height:1;}
+.kcard.navy .kval{color:var(--navy);}
+.kcard.green .kval{color:var(--green);}
+.kcard.amber .kval{color:var(--amber);}
+.ksub{font-size:10px;color:var(--grey-text);margin-top:4px;font-weight:500;}
+.ksub span{color:var(--teal);font-weight:600;}
+.kdelta{font-size:10px;font-weight:700;margin-top:4px;}
+.up{color:#16A34A;} .down{color:var(--red);} .neutral{color:var(--grey-text);}
+/* GRID LAYOUTS */
+.g2{display:grid;grid-template-columns:2fr 1fr;gap:18px;margin-bottom:20px;}
+.g2e{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:20px;}
+.g12{display:grid;grid-template-columns:1fr 2fr;gap:18px;margin-bottom:20px;}
+.full{margin-bottom:20px;}
+/* CHART CARD */
+.cc{background:#fff;border-radius:14px;padding:22px;box-shadow:0 2px 10px rgba(0,0,0,.05);}
+.cc-title{font-size:13px;font-weight:700;color:var(--navy);margin-bottom:3px;}
+.cc-sub{font-size:11px;color:var(--grey-text);margin-bottom:16px;font-weight:500;}
+/* FUNNEL */
+.fstep{margin-bottom:10px;}
+.frow{display:flex;justify-content:space-between;margin-bottom:4px;}
+.fname{font-size:11px;font-weight:600;color:var(--navy);}
+.fval{font-size:12px;font-weight:700;color:var(--teal);}
+.fbar-bg{background:var(--grey-bg);border-radius:4px;height:18px;overflow:hidden;}
+.fbar{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:8px;transition:width .6s ease;}
+.fbar span{font-size:9px;color:#fff;font-weight:700;}
+.fdrop{font-size:10px;color:var(--grey-text);text-align:right;margin-top:2px;font-style:italic;}
+/* NARRATIVE */
+.narr{background:var(--grey-bg);border-radius:12px;padding:14px 18px;margin-top:16px;}
+.narr p{font-size:11px;color:var(--black);line-height:1.8;}
+.narr strong{color:var(--teal);}
+/* TABLE */
+.tcard{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,.05);margin-bottom:20px;}
+.thead-bar{background:var(--navy);padding:14px 22px;display:flex;justify-content:space-between;align-items:center;}
+.thead-bar .t1{font-size:13px;font-weight:700;color:#fff;}
+.thead-bar .t2{font-size:11px;color:rgba(255,255,255,.5);}
+table{width:100%;border-collapse:collapse;}
+thead th{background:var(--teal);color:#fff;font-size:10px;font-weight:600;padding:9px 14px;text-align:left;text-transform:uppercase;letter-spacing:.4px;}
+thead th:first-child{padding-left:22px;}
+tbody tr:nth-child(even){background:var(--grey-bg);}
+tbody tr:hover{background:rgba(0,131,122,.05);}
+tbody td{padding:9px 14px;font-size:11px;color:var(--navy);border-bottom:1px solid rgba(0,0,0,.04);}
+tbody td:first-child{padding-left:22px;font-weight:600;}
+.td-teal{color:var(--teal);font-weight:700;}
+.td-navy{color:var(--navy);font-weight:700;}
+.td-green{color:var(--green);font-weight:700;}
+.rank{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;font-size:9px;font-weight:700;margin-right:5px;}
+.r1{background:#F59E0B;color:#fff;} .r2{background:var(--grey-text);color:#fff;} .r3{background:#CD7F32;color:#fff;} .rn{background:var(--grey-bg);color:var(--navy);}
+/* CHANNEL MIX STACK */
+.chan-bar{height:28px;border-radius:6px;display:flex;overflow:hidden;margin-bottom:8px;}
+.chan-seg{display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;transition:width .5s;}
+/* TABS */
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+/* MINI CHART LEGEND */
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:12px;}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:10px;color:var(--grey-text);font-weight:500;}
+.leg-dot{width:10px;height:10px;border-radius:50%;}
+/* MONTH SELECTOR */
+.month-sel{display:flex;gap:6px;margin-bottom:16px;}
+.msel-btn{background:#fff;border:1.5px solid rgba(0,0,0,.1);color:var(--grey-text);font-family:inherit;font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;cursor:pointer;transition:all .2s;}
+.msel-btn:hover,.msel-btn.active{background:var(--teal);color:#fff;border-color:var(--teal);}
+/* CHANNEL SPLIT CARD */
+.split-row{display:flex;gap:10px;margin-bottom:14px;}
+.split-chip{flex:1;background:var(--grey-bg);border-radius:10px;padding:10px 12px;text-align:center;}
+.split-chip .s-label{font-size:9px;color:var(--grey-text);font-weight:600;text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px;}
+.split-chip .s-val{font-size:17px;font-weight:800;color:var(--navy);}
+.split-chip .s-sub{font-size:9px;color:var(--grey-text);margin-top:2px;}
+/* FOOTER */
+.footer{text-align:center;padding:20px;font-size:11px;color:var(--grey-text);border-top:1px solid rgba(0,0,0,.06);margin-top:32px;}
+/* RESPONSIVE */
+@media(max-width:1100px){.kg5{grid-template-columns:repeat(3,1fr);}.g2,.g2e{grid-template-columns:1fr;}.g3{grid-template-columns:1fr 1fr;}}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div style="display:flex;align-items:center;gap:20px;">
+    <div class="brand"><div class="b1">Blackmores</div><div class="b2">TikTok Shop</div></div>
+    <div class="nav-tabs">
+      <button class="ntab active" onclick="showTab('overview',this)">Overview</button>
+      <button class="ntab" onclick="showTab('live',this)">Live</button>
+      <button class="ntab" onclick="showTab('video',this)">Video</button>
+      <button class="ntab" onclick="showTab('prodcard',this)">Product Card</button>
+      <button class="ntab" onclick="showTab('products',this)">Products</button>
+      <button class="ntab" onclick="showTab('affiliate',this)">Affiliate</button>
+      <button class="ntab" onclick="showTab('objectives',this)">🎯 Objectives</button>
+    </div>
+  </div>
+  <div class="nav-meta">Jan – 17 May 2026 · Thailand</div>
+</nav>
+
+<div class="page">
+
+<!-- ══════════════════════════════════════════ OVERVIEW ══ -->
+<div id="tab-overview" class="tab-content active">
+
+  <div class="ph">
+    <div>
+      <div class="ph-title">TikTok Shop — Channel Overview</div>
+      <div class="ph-sub">Jan – 17 May 2026 · All channels · YoY +42.96% GMV</div>
+    </div>
+    <div style="display:flex;gap:8px;">
+      <div class="badge">Total GMV <strong>฿24.8M</strong></div>
+    </div>
+  </div>
+
+  <div class="flag">⚠️ <strong>Comparison rule:</strong> March = Mega Month (peak). Apr & May are BAU — compare Apr vs Feb, May vs Apr. Post-Mega drop in April is expected context, not underperformance. May data is partial (1–17 May only).</div>
+
+  <!-- KPI SUMMARY -->
+  <div class="spill"><span class="pill">KPI Summary</span><span class="pill-sub">Jan–17 May 2026 · YoY vs Aug–Dec 2025</span></div>
+  <div class="kgrid kg5">
+    <div class="kcard"><div class="klab">Total GMV</div><div class="kval">฿24.8M</div><div class="ksub"><span>+43%</span> YoY</div></div>
+    <div class="kcard navy"><div class="klab">Total Orders</div><div class="kval">46,891</div><div class="ksub"><span>+46%</span> YoY</div></div>
+    <div class="kcard"><div class="klab">Unique Customers</div><div class="kval">43,464</div><div class="ksub"><span>+46%</span> YoY</div></div>
+    <div class="kcard green"><div class="klab">Items Sold</div><div class="kval">56,075</div><div class="ksub"><span>+43%</span> YoY</div></div>
+    <div class="kcard amber"><div class="klab">Conv. Rate</div><div class="kval">5.08%</div><div class="ksub"><span>+55%</span> YoY improvement</div></div>
+  </div>
+
+  <!-- MONTHLY GMV TREND + CHANNEL MIX -->
+  <div class="g2">
+    <div class="cc">
+      <div class="cc-title">Monthly GMV Trend — All Shop</div>
+      <div class="cc-sub">Total shop GMV (฿) · Jan–May 2026 · May = 17 days only</div>
+      <canvas id="shopGmvChart" height="220"></canvas>
+      <div class="narr"><p>GMV grew steadily Jan→Mar, with March peaking at <strong>฿5.63M</strong> (Mega Month). April set a new high at <strong>฿5.99M</strong> — a BAU month outperforming the prior Mega, signalling strong channel momentum. May is tracking ฿3.9M through day 17, projecting a full-month run-rate of <strong>~฿7.3M</strong> if daily pace holds.</p></div>
+    </div>
+    <div class="cc">
+      <div class="cc-title">Monthly GMV by Channel</div>
+      <div class="cc-sub">Live vs. Video (Affiliate) vs. Product Card</div>
+      <canvas id="chanMixChart" height="220"></canvas>
+      <div class="narr"><p><strong>Live</strong> is the #1 revenue driver, contributing ~37–44% of total shop GMV monthly. <strong>Affiliate Video</strong> has grown from ฿1.2M (Jan) to ฿2.0M (Apr), up +63%. <strong>Product Card</strong> data available from Mar onwards, adding ฿1.4–1.5M/month.</p></div>
+    </div>
+  </div>
+
+  <!-- MONTHLY TABLE -->
+  <div class="spill"><span class="pill">Monthly Breakdown</span><span class="pill-sub">All channels · Actuals</span></div>
+  <div class="tcard">
+    <table>
+      <thead><tr>
+        <th>Month</th><th>Shop GMV (฿)</th><th>Orders</th><th>Customers</th>
+        <th>Live GMV (฿)</th><th>Live Streams</th>
+        <th>Video Aff. GMV (฿)</th>
+        <th>Product Card GMV (฿)</th>
+        <th>MoM Note</th>
+      </tr></thead>
+      <tbody id="overviewTable"></tbody>
+    </table>
+  </div>
+
+  <!-- DAILY TREND -->
+  <div class="full">
+    <div class="cc">
+      <div class="cc-title">Daily GMV — Full Period</div>
+      <div class="cc-sub">Total shop GMV per day · Jan 1 – May 17, 2026</div>
+      <canvas id="dailyGmvChart" height="130"></canvas>
+    </div>
+  </div>
+
+</div><!-- /overview -->
+
+<!-- ══════════════════════════════════════════ LIVE ══ -->
+<div id="tab-live" class="tab-content">
+
+  <div class="ph">
+    <div><div class="ph-title">Live Performance</div><div class="ph-sub">Branded + Affiliate Live · Jan – 17 May 2026</div></div>
+    <div class="badge">Total Live GMV <strong>฿10.4M</strong></div>
+  </div>
+
+  <div class="kgrid kg4">
+    <div class="kcard"><div class="klab">Total Live GMV</div><div class="kval">฿10.4M</div><div class="ksub">Jan–May partial</div></div>
+    <div class="kcard navy"><div class="klab">Affiliate Live GMV</div><div class="kval">฿7.1M</div><div class="ksub">~<span>68%</span> of total Live</div></div>
+    <div class="kcard"><div class="klab">Branded Live GMV</div><div class="kval">฿3.3M</div><div class="ksub">~<span>32%</span> of total Live</div></div>
+    <div class="kcard amber"><div class="klab">Best Month GPM</div><div class="kval">฿1,195</div><div class="ksub">May 2026 · per 1K views</div></div>
+  </div>
+
+  <div class="g2e">
+    <div class="cc">
+      <div class="cc-title">Monthly Live GMV — Branded vs. Affiliate</div>
+      <div class="cc-sub">Stacked bar · Total Live GMV by source</div>
+      <canvas id="liveMixChart" height="230"></canvas>
+    </div>
+    <div class="cc">
+      <div class="cc-title">Live GPM Trend (฿ per 1,000 Views)</div>
+      <div class="cc-sub">Show GPM monthly average — efficiency of live traffic monetisation</div>
+      <canvas id="liveGpmChart" height="230"></canvas>
+      <div class="narr"><p>GPM recovered sharply in May to <strong>฿1,195</strong> — highest in the period. This reflects fewer but more targeted streams driving higher revenue per viewer, likely linked to sharper promotional mechanics.</p></div>
+    </div>
+  </div>
+
+  <div class="g3">
+    <div class="cc">
+      <div class="cc-title">Live Streams per Month</div>
+      <div class="cc-sub">Total streams (branded + affiliate)</div>
+      <canvas id="liveStreamsChart" height="200"></canvas>
+    </div>
+    <div class="cc">
+      <div class="cc-title">LIVE Views per Month</div>
+      <div class="cc-sub">Total views across all live sessions</div>
+      <canvas id="liveViewsChart" height="200"></canvas>
+    </div>
+    <div class="cc">
+      <div class="cc-title">Live Orders per Month</div>
+      <div class="cc-sub">Attributed SKU orders from LIVE channel</div>
+      <canvas id="liveOrdersChart" height="200"></canvas>
+    </div>
+  </div>
+
+  <div class="spill"><span class="pill">Live Monthly Table</span></div>
+  <div class="tcard">
+    <table>
+      <thead><tr>
+        <th>Month</th><th>Total Live GMV (฿)</th><th>Branded GMV (฿)</th><th>Affiliate GMV (฿)</th>
+        <th>Aff. %</th><th>Streams</th><th>LIVE Views</th><th>Orders</th><th>GPM (฿)</th>
+      </tr></thead>
+      <tbody id="liveTable"></tbody>
+    </table>
+  </div>
+
+</div><!-- /live -->
+
+<!-- ══════════════════════════════════════════ VIDEO ══ -->
+<div id="tab-video" class="tab-content">
+
+  <div class="ph">
+    <div><div class="ph-title">Video Performance — Affiliate</div><div class="ph-sub">Affiliate video-attributed GMV · Jan – 17 May 2026</div></div>
+    <div class="badge">Affiliate Video GMV <strong>฿7.76M</strong></div>
+  </div>
+
+  <div class="kgrid kg4">
+    <div class="kcard"><div class="klab">Total Video GMV</div><div class="kval">฿7.76M</div><div class="ksub">Jan–May · Affiliate</div></div>
+    <div class="kcard navy"><div class="klab">Total Video Views</div><div class="kval">60.3M</div><div class="ksub">Jan–May cumulative</div></div>
+    <div class="kcard"><div class="klab">Total Orders</div><div class="kval">17,119</div><div class="ksub">Affiliate video-attributed</div></div>
+    <div class="kcard green"><div class="klab">Peak Month GMV</div><div class="kval">฿2.0M</div><div class="ksub">April 2026</div></div>
+  </div>
+
+  <div class="g2e">
+    <div class="cc">
+      <div class="cc-title">Monthly Video GMV (Affiliate)</div>
+      <div class="cc-sub">Video-attributed GMV · consistent growth Jan→Apr</div>
+      <canvas id="vidGmvChart" height="230"></canvas>
+    </div>
+    <div class="cc">
+      <div class="cc-title">Monthly Video Views vs. GPM</div>
+      <div class="cc-sub">Views (bars) vs. GPM ฿/1K views (line) — quality vs. quantity</div>
+      <canvas id="vidViewsGpmChart" height="230"></canvas>
+      <div class="narr"><p>Views surged in Apr to <strong>37M</strong> but GPM dropped to ฿53 — indicating broad reach but thinner intent. Jan–Feb had <strong>฿848–992 GPM</strong> with only 1.4M views, pointing to higher-quality, more targeted content. <strong>Recommendation:</strong> rebalance from volume to conversion-quality content briefs for affiliates.</p></div>
+    </div>
+  </div>
+
+  <div class="spill"><span class="pill">Video Monthly Table</span></div>
+  <div class="tcard">
+    <table>
+      <thead><tr>
+        <th>Month</th><th>Video GMV (฿)</th><th>MoM Δ</th><th>Views</th><th>Orders</th><th>GPM (฿/1K views)</th>
+      </tr></thead>
+      <tbody id="videoTable"></tbody>
+    </table>
+  </div>
+
+</div><!-- /video -->
+
+<!-- ══════════════════════════════════════════ PRODUCT CARD ══ -->
+<div id="tab-prodcard" class="tab-content">
+
+  <div class="ph">
+    <div><div class="ph-title">Product Card Traffic</div><div class="ph-sub">Blackmores self-sell · Mar–17 May 2026</div></div>
+    <div style="display:flex;gap:8px;">
+      <div class="badge">Mar <span class="mega-tag">Mega</span></div>
+      <div class="badge">Apr <span class="bau-tag">BAU</span></div>
+      <div class="badge">May partial</div>
+    </div>
+  </div>
+
+  <div class="flag">⚠️ <strong>March is a Mega Month.</strong> Compare Apr vs. Mar only with this in mind — a drop is expected. Apr BAU performance (฿1.50M) actually exceeded Mar (฿1.40M), which is a strong signal.</div>
+
+  <div class="kgrid kg4">
+    <div class="kcard"><div class="klab">Mar GMV</div><div class="kval">฿1.40M</div><div class="ksub">3,082 orders · 31 days <span class="mega-tag" style="font-size:8px;padding:1px 5px;margin-left:4px;">Mega</span></div></div>
+    <div class="kcard"><div class="klab">Apr GMV</div><div class="kval">฿1.50M</div><div class="ksub kdelta up">↑ +7.3% vs Mar · 3,457 orders</div></div>
+    <div class="kcard"><div class="klab">May GMV (1–16)</div><div class="kval">฿810K</div><div class="ksub">1,755 orders · 16 days · ~฿50K/day</div></div>
+    <div class="kcard green"><div class="klab">Avg. AOV</div><div class="kval">฿447</div><div class="ksub">Across Mar–May period</div></div>
+  </div>
+
+  <div class="g2e">
+    <div class="cc">
+      <div class="cc-title">Daily GMV — Product Card (Mar–May)</div>
+      <div class="cc-sub">฿ · Colour: Teal = Mar, Navy = Apr, Light = May</div>
+      <canvas id="pcDailyGmv" height="230"></canvas>
+    </div>
+    <div class="cc">
+      <div class="cc-title">Conversion Funnel — March 2026</div>
+      <div class="cc-sub">View → Click → Cart → Paid · cumulative</div>
+      <div class="fstep" style="margin-top:16px;">
+        <div class="frow"><span class="fname">👁 Views</span><span class="fval">2,515,155</span></div>
+        <div class="fbar-bg"><div class="fbar" style="width:100%;background:var(--navy);"><span>100%</span></div></div>
+      </div>
+      <div class="fstep">
+        <div class="frow"><span class="fname">🖱 Clicks</span><span class="fval">116,914</span></div>
+        <div class="fbar-bg"><div class="fbar" style="width:4.65%;background:var(--teal);"><span>4.65%</span></div></div>
+        <div class="fdrop">View → Click: 4.65%</div>
+      </div>
+      <div class="fstep">
+        <div class="frow"><span class="fname">🛒 Add to Cart</span><span class="fval">10,594</span></div>
+        <div class="fbar-bg"><div class="fbar" style="width:9.1%;background:var(--teal-light);"><span>9.1%</span></div></div>
+        <div class="fdrop">Click → Cart: 9.1%</div>
+      </div>
+      <div class="fstep">
+        <div class="frow"><span class="fname">✅ Orders</span><span class="fval">3,082</span></div>
+        <div class="fbar-bg"><div class="fbar" style="width:29.1%;background:var(--green);"><span>29.1%</span></div></div>
+        <div class="fdrop">Cart → Paid: 29.1% · End-to-end: 0.12%</div>
+      </div>
+      <div class="narr"><p>The biggest drop is <strong>View → Click (4.65%)</strong> — 1 in 22 viewers clicks. Improving listing thumbnails, titles, and pricing display could move this meaningfully. Cart-to-paid at <strong>29%</strong> shows intent is strong once users engage.</p></div>
+    </div>
+  </div>
+
+  <div class="g2e">
+    <div class="cc">
+      <div class="cc-title">Monthly Product Card Summary</div>
+      <div class="cc-sub">3-month comparison · Mar (Mega), Apr (BAU), May (partial)</div>
+      <canvas id="pcMonthlyChart" height="220"></canvas>
+    </div>
+    <div class="cc">
+      <div class="cc-title">Daily Conversion Rate — Click-to-Paid %</div>
+      <div class="cc-sub">Mar 2026 · Day-level quality signal</div>
+      <canvas id="pcConvChart" height="220"></canvas>
+    </div>
+  </div>
+
+  <div class="spill"><span class="pill">Top 10 Days by GMV</span><span class="pill-sub">Product Card · March 2026</span></div>
+  <div class="tcard">
+    <table>
+      <thead><tr><th>Rank</th><th>Date</th><th>GMV (฿)</th><th>Orders</th><th>Views</th><th>CTR</th><th>Click-to-Paid</th><th>AOV (฿)</th></tr></thead>
+      <tbody id="pcTopTable"></tbody>
+    </table>
+  </div>
+
+</div><!-- /prodcard -->
+
+<!-- ══════════════════════════════════════════ PRODUCTS ══ -->
+<div id="tab-products" class="tab-content">
+
+  <div class="ph">
+    <div><div class="ph-title">Product Performance</div><div class="ph-sub">Top SKUs by GMV · Channel attribution breakdown</div></div>
+  </div>
+
+  <div class="month-sel">
+    <button class="msel-btn active" onclick="showProducts('mar',this)">March 2026</button>
+    <button class="msel-btn" onclick="showProducts('apr',this)">April 2026</button>
+    <button class="msel-btn" onclick="showProducts('may',this)">May 2026 (1–16)</button>
+  </div>
+
+  <div class="g2e">
+    <div class="cc">
+      <div class="cc-title" id="prodChartTitle">Top 10 Products by GMV — March 2026</div>
+      <div class="cc-sub">Product card GMV ranking</div>
+      <canvas id="prodGmvChart" height="320"></canvas>
+    </div>
+    <div class="cc">
+      <div class="cc-title" id="prodChanTitle">Channel Mix — Top Products · March 2026</div>
+      <div class="cc-sub">Shop Tab / Live / Video / Product Card split</div>
+      <canvas id="prodChanChart" height="320"></canvas>
+    </div>
+  </div>
+
+  <div class="spill"><span class="pill">Product Ranking Table</span><span class="pill-sub" id="prodTableSub">March 2026</span></div>
+  <div class="tcard">
+    <table>
+      <thead><tr><th>Rank</th><th>Product</th><th>Total GMV (฿)</th><th>Orders</th><th>Shop Tab</th><th>Live</th><th>Video</th><th>Product Card</th></tr></thead>
+      <tbody id="prodTable"></tbody>
+    </table>
+  </div>
+
+</div><!-- /products -->
+
+<!-- ══════════════════════════════════════════ AFFILIATE ══ -->
+<div id="tab-affiliate" class="tab-content">
+
+  <div class="ph">
+    <div><div class="ph-title">Affiliate Performance</div><div class="ph-sub">Creator-attributed sales · Jan 1 – May 15, 2026 · Source: Transaction_Analysis_Core_Metrics</div></div>
+    <div class="badge">Creator GMV <strong>฿16.6M</strong></div>
+  </div>
+
+  <!-- sub-nav -->
+  <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;">
+    <button class="msel-btn active" onclick="scrollToAff('aff-share',this)">1 · Revenue Share</button>
+    <button class="msel-btn" onclick="scrollToAff('aff-mom',this)">2 · MoM Performance</button>
+    <button class="msel-btn" onclick="scrollToAff('aff-insight',this)">3 · Highlights & Actions</button>
+    <button class="msel-btn" onclick="scrollToAff('aff-skus',this)">4 · Product Suggestions</button>
+  </div>
+
+  <!-- ── 1. REVENUE SHARE ── -->
+  <div id="aff-share" style="scroll-margin-top:80px;">
+    <div class="spill"><span class="pill">1 · Revenue Share</span><span class="pill-sub">Affiliate contribution to total channel GMV</span></div>
+
+    <div class="kgrid kg4" style="margin-bottom:20px;">
+      <div class="kcard"><div class="klab">Creator GMV (YTD)</div><div class="kval">฿16.6M</div><div class="ksub">Jan–May 15 · video + live</div></div>
+      <div class="kcard navy"><div class="klab">Affiliate Revenue Share</div><div class="kval" id="affSharePct">—</div><div class="ksub">of total TikTok GMV</div></div>
+      <div class="kcard"><div class="klab">Est. Commission</div><div class="kval">฿1.10M</div><div class="ksub">6.6% effective rate</div></div>
+      <div class="kcard green"><div class="klab">Creator AOV</div><div class="kval">฿515</div><div class="ksub">vs shop avg ฿539</div></div>
+    </div>
+
+    <div class="g2e">
+      <div class="cc">
+        <div class="cc-title">Affiliate vs Self-Sell GMV — Monthly</div>
+        <div class="cc-sub">Stacked: Affiliate (Live + Video) vs Blackmores-owned channels</div>
+        <canvas id="affShareChart" height="240"></canvas>
+      </div>
+      <div class="cc">
+        <div class="cc-title">Affiliate Channel Mix by Month</div>
+        <div class="cc-sub">Creator Live vs Creator Video GMV split</div>
+        <canvas id="affMixChart" height="240"></canvas>
+      </div>
+    </div>
+
+    <div class="g3" style="margin-top:16px;">
+      <div class="cc" style="text-align:center;">
+        <div class="cc-title">Total Items Sold</div>
+        <div style="font-size:38px;font-weight:800;color:var(--teal);margin:16px 0;">37,093</div>
+        <div class="cc-sub">via creator channel (YTD)</div>
+      </div>
+      <div class="cc" style="text-align:center;">
+        <div class="cc-title">Shoppable Videos</div>
+        <div style="font-size:38px;font-weight:800;color:var(--navy);margin:16px 0;">6,949</div>
+        <div class="cc-sub">affiliate videos published</div>
+      </div>
+      <div class="cc" style="text-align:center;">
+        <div class="cc-title">Affiliate LIVE Streams</div>
+        <div style="font-size:38px;font-weight:800;color:var(--teal-light);margin:16px 0;">11,889</div>
+        <div class="cc-sub">creator live sessions</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 2. MoM PERFORMANCE ── -->
+  <div id="aff-mom" style="scroll-margin-top:80px;margin-top:32px;">
+    <div class="spill"><span class="pill">2 · MoM Performance</span><span class="pill-sub">All Transaction Analysis metrics · Jan → May 2026</span></div>
+
+    <div class="g2e" style="margin-bottom:16px;">
+      <div class="cc">
+        <div class="cc-title">Creator GMV — Monthly</div>
+        <div class="cc-sub">Live + Video combined (฿)</div>
+        <canvas id="affTotalGmvChart" height="220"></canvas>
+      </div>
+      <div class="cc">
+        <div class="cc-title">Avg Daily Creators with Sales</div>
+        <div class="cc-sub">Active revenue-generating creators per day</div>
+        <canvas id="affCreatorsChart" height="220"></canvas>
+      </div>
+    </div>
+
+    <div class="g2e" style="margin-bottom:16px;">
+      <div class="cc">
+        <div class="cc-title">Videos Published vs LIVE Streams</div>
+        <div class="cc-sub">Content output volume by month</div>
+        <canvas id="affContentChart" height="220"></canvas>
+      </div>
+      <div class="cc">
+        <div class="cc-title">AOV & Commission Rate</div>
+        <div class="cc-sub">Creator AOV (฿) vs estimated commission %</div>
+        <canvas id="affAovCommChart" height="220"></canvas>
+      </div>
+    </div>
+
+    <div class="g2e" style="margin-bottom:20px;">
+      <div class="cc">
+        <div class="cc-title">Daily Videos with Sales vs Daily LIVEs with Sales</div>
+        <div class="cc-sub">Content-to-sale conversion efficiency by type</div>
+        <canvas id="affSalesEffChart" height="220"></canvas>
+      </div>
+      <div class="cc">
+        <div class="cc-title">Refund Rate — Affiliate Channel</div>
+        <div class="cc-sub">Refunded items as % of items sold</div>
+        <canvas id="affRefundChart" height="220"></canvas>
+      </div>
+    </div>
+
+    <!-- Full MoM metrics table -->
+    <div class="spill"><span class="pill" style="background:var(--navy);">Full Metric Scorecard</span></div>
+    <div class="tcard" style="overflow-x:auto;">
+      <table style="min-width:1100px;">
+        <thead><tr>
+          <th style="min-width:200px;">Metric</th>
+          <th>Jan</th><th>Feb</th><th>Mar ⭐</th><th>Apr</th><th>May (partial)</th>
+          <th>MoM (Apr→May)</th>
+        </tr></thead>
+        <tbody id="affMomTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── 3. HIGHLIGHTS & ACTIONS ── -->
+  <div id="aff-insight" style="scroll-margin-top:80px;margin-top:32px;">
+    <div class="spill"><span class="pill">3 · What We Did Well · What to Improve</span></div>
+
+    <div class="g2e">
+      <div class="cc" style="border-left:4px solid #22c55e;">
+        <div class="cc-title" style="color:#16a34a;">✅ What's Working</div>
+        <ul style="margin:12px 0 0;padding-left:18px;font-size:13px;line-height:2;">
+          <li><strong>Affiliate Live GMV sustained:</strong> ฿1.2–1.5M/month consistently across all 5 months — stable floor even in low-traffic months</li>
+          <li><strong>LIVE streams with sales efficiency:</strong> avg 14.2 LIVE sessions with sales per day — high activation rate among active live creators</li>
+          <li><strong>Creator AOV ฿515</strong> above product card baseline (฿447) — live and video creators are driving higher basket size, especially in Payday and DD periods</li>
+          <li><strong>Commission rate at 6.6%</strong> — well within ROI-positive range (benchmark: &lt;10% for health/wellness TikTok)</li>
+          <li><strong>Mar Mega Month uplift:</strong> affiliate live and video both spiked on 3.3 and category days — creators responding to campaign mechanics</li>
+        </ul>
+      </div>
+      <div class="cc" style="border-left:4px solid #f59e0b;">
+        <div class="cc-title" style="color:#b45309;">⚠️ What to Improve</div>
+        <ul style="margin:12px 0 0;padding-left:18px;font-size:13px;line-height:2;">
+          <li><strong>Video GPM collapsed:</strong> Jan ฿848 → Apr ฿53 — views grew 26× but GMV only 1.6×. Content briefs are not aligned to purchase intent. Re-brief required before 6.6</li>
+          <li><strong>Apr live streams down 23%</strong> from Jan (3,125→2,405) while views up — fewer but larger streams. Losing long-tail creator volume; need to activate mid-tier creators</li>
+          <li><strong>Daily creators with sales plateau:</strong> 82→88 range shows no growth in active seller base. Target: 100+ daily creators with sales by Jun Mega Month</li>
+          <li><strong>Refund rate creeping up in Apr:</strong> linked to broader product mismatch — affiliates promoting high-AOV SKUs (Bio C 1000mg ×2) without qualifying audience</li>
+          <li><strong>Avg daily products in collaborations:</strong> low collaboration uptake on new SKUs (Zinc, Vitamin E). Need to push these into target collab plans with GMV incentives</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Action priorities -->
+    <div class="cc" style="margin-top:16px;background:var(--navy);color:#fff;">
+      <div class="cc-title" style="color:#4DB8B2;">📋 Priority Actions Before 6.6 Mega Month</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px;font-size:12px;line-height:1.7;">
+        <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:14px;">
+          <div style="color:#4DB8B2;font-weight:700;margin-bottom:6px;">🎬 VIDEO BRIEF</div>
+          Re-brief all Tier A/B video creators: first 3 sec must include product benefit + offer hook. GPM floor = ฿300. Remove creators below ฿100 GPM from collab plan.
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:14px;">
+          <div style="color:#4DB8B2;font-weight:700;margin-bottom:6px;">📡 LIVE ACTIVATION</div>
+          Recruit 15–20 new mid-tier live creators (10K–100K followers). Target: +20% active live streams with sales. Provide exclusive in-session GMV mechanics for 6.6.
+        </div>
+        <div style="background:rgba(255,255,255,0.08);border-radius:8px;padding:14px;">
+          <div style="color:#4DB8B2;font-weight:700;margin-bottom:6px;">🛒 COLLAB PUSH</div>
+          Add Zinc A Chelate + Vitamin E + Bio Calcium+D3 to target collaboration with GMV incentive tiers. These 3 SKUs are under-indexed in affiliate vs. self-sell.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── 4. PRODUCT SUGGESTIONS ── -->
+  <div id="aff-skus" style="scroll-margin-top:80px;margin-top:32px;">
+    <div class="spill"><span class="pill">4 · Product Suggestions by Affiliate Channel</span><span class="pill-sub">Based on Apr–May conversion data + content fit</span></div>
+
+    <div class="g2e">
+      <!-- Video affiliate -->
+      <div class="cc">
+        <div class="cc-title">🎬 Best Products for Affiliate Video</div>
+        <div class="cc-sub" style="margin-bottom:12px;">Ranked by video GMV share + view-to-order fit. Products with strong visual storytelling potential.</div>
+        <canvas id="affVideoSkuChart" height="220"></canvas>
+        <div style="margin-top:14px;font-size:12px;line-height:1.8;">
+          <div style="display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:start;">
+            <span style="color:var(--teal);font-weight:700;">Bio C Acerola Plus 1500mg</span><span style="color:#6B7280;">Bright colour, tangible benefit (vitamin C glow) — hooks in first 3s</span><span style="color:var(--teal);font-weight:700;">฿280</span>
+            <span style="color:var(--teal);font-weight:700;">Zinc A Chelate</span><span style="color:#6B7280;">Immunity angle + skincare crossover — broad Gen Z / millennial appeal</span><span style="color:var(--teal);font-weight:700;">฿449</span>
+            <span style="color:var(--teal);font-weight:700;">Vitamin E 400IU</span><span style="color:#6B7280;">Beauty supplement framing — high video completion rate potential</span><span style="color:var(--teal);font-weight:700;">฿320</span>
+            <span style="color:var(--teal);font-weight:700;">Bio C 1000mg 30s</span><span style="color:#6B7280;">Affordable entry point — high volume, good for intro/trial content</span><span style="color:var(--teal);font-weight:700;">฿380</span>
+            <span style="color:var(--teal);font-weight:700;">Bio Calcium+D3</span><span style="color:#6B7280;">Education play — bone health story resonates with 30–45 audience</span><span style="color:var(--teal);font-weight:700;">฿399</span>
+          </div>
+          <div style="margin-top:10px;padding:10px;background:var(--grey-bg);border-radius:6px;color:#6B7280;">
+            <strong style="color:var(--navy);">Brief rule:</strong> Lead with product benefit in first 3 seconds, follow with offer/mechanic. Target GPM ≥฿300. Videos under ฿100 GPM to be removed from collab plan.
+          </div>
+        </div>
+      </div>
+
+      <!-- Live affiliate -->
+      <div class="cc">
+        <div class="cc-title">📡 Best Products for Affiliate Live</div>
+        <div class="cc-sub" style="margin-bottom:12px;">Ranked by live GMV contribution + bundle/flash-sale suitability for in-session conversion.</div>
+        <canvas id="affLiveSkuChart" height="220"></canvas>
+        <div style="margin-top:14px;font-size:12px;line-height:1.8;">
+          <div style="display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:start;">
+            <span style="color:var(--navy);font-weight:700;">Bio C 1000mg Daily Imu+</span><span style="color:#6B7280;">Top live GMV driver (47% live share in Apr) — anchor SKU for every live session</span><span style="color:var(--navy);font-weight:700;">฿720</span>
+            <span style="color:var(--navy);font-weight:700;">Omega Triple Daily</span><span style="color:#6B7280;">43% live GMV share — strong bundle candidate with Bio C. Demo-friendly.</span><span style="color:var(--navy);font-weight:700;">฿469</span>
+            <span style="color:var(--navy);font-weight:700;">Bio C 1000mg 30s</span><span style="color:#6B7280;">Low-barrier entry price — use as flash deal to trigger first-time buyers in-session</span><span style="color:var(--navy);font-weight:700;">฿380</span>
+            <span style="color:var(--navy);font-weight:700;">Bio Calcium+D3</span><span style="color:#6B7280;">Demo-friendly (tablet size, packaging) — works well in bundle flash deals</span><span style="color:var(--navy);font-weight:700;">฿399</span>
+            <span style="color:var(--navy);font-weight:700;">Zinc A Chelate</span><span style="color:#6B7280;">21% product card share — currently under-used in live. High upsell potential.</span><span style="color:var(--navy);font-weight:700;">฿449</span>
+          </div>
+          <div style="margin-top:10px;padding:10px;background:var(--grey-bg);border-radius:6px;color:#6B7280;">
+            <strong style="color:var(--navy);">Live mechanic rule:</strong> Anchor with Bio C 1000mg → upsell to Omega bundle → close with Bio C 30s flash deal. Exclusive in-session pricing drives CTOR. Target CTOR ≥3.0%.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collab priority table -->
+    <div class="spill" style="margin-top:16px;"><span class="pill" style="background:var(--navy);">Collaboration Priority Matrix</span></div>
+    <div class="tcard">
+      <table>
+        <thead><tr>
+          <th>SKU</th><th>Price</th><th>Best Channel</th><th>Current Collab Status</th>
+          <th>Recommended Mechanic</th><th>Target GMV / Creator</th><th>Priority</th>
+        </tr></thead>
+        <tbody>
+          <tr><td><strong>Bio C 1000mg Daily Imu+</strong></td><td>฿720</td><td>Live (primary)</td><td>Active — target collab</td><td>Bundle 2 for ฿1,260 · in-session exclusive</td><td>฿8,000+</td><td><span style="color:var(--teal);font-weight:700;">⭐⭐⭐ Anchor</span></td></tr>
+          <tr style="background:var(--grey-bg);"><td><strong>Omega Triple Daily</strong></td><td>฿469</td><td>Live + Video</td><td>Active — open collab</td><td>Bundle with Bio C · trial 30-day ฿419</td><td>฿5,000+</td><td><span style="color:var(--teal);font-weight:700;">⭐⭐⭐ Anchor</span></td></tr>
+          <tr><td><strong>Bio C Acerola Plus 1500mg</strong></td><td>฿280</td><td>Video (primary)</td><td>Active — open collab</td><td>Intro price ฿249 · 3 for ฿750</td><td>฿3,000+</td><td><span style="color:var(--teal);">⭐⭐⭐ Volume</span></td></tr>
+          <tr style="background:var(--grey-bg);"><td><strong>Zinc A Chelate</strong></td><td>฿449</td><td>Video + PC</td><td>⚠️ Under-indexed — push to target collab</td><td>Immunity angle · beauty crossover brief</td><td>฿2,500+</td><td><span style="color:#f59e0b;">⭐⭐ Growth</span></td></tr>
+          <tr><td><strong>Vitamin E 400IU</strong></td><td>฿320</td><td>Video</td><td>⚠️ Under-indexed — push to target collab</td><td>Beauty supplement framing · 2-pack ฿550</td><td>฿2,000+</td><td><span style="color:#f59e0b;">⭐⭐ Growth</span></td></tr>
+          <tr style="background:var(--grey-bg);"><td><strong>Bio Calcium+D3</strong></td><td>฿399</td><td>Live + Video</td><td>Active — expand to more creators</td><td>Buy 2 ฿699 + GWP · education content angle</td><td>฿2,500+</td><td><span style="color:#f59e0b;">⭐⭐ Growth</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- legacy table (hidden reference) -->
+  <div style="display:none;"><table><tbody id="affTable"></tbody></table></div>
+
+</div><!-- /affiliate -->
+
+<!-- ══════════════════════════════════════════ OBJECTIVES ══ -->
+<div id="tab-objectives" class="tab-content">
+
+  <div class="ph">
+    <div><div class="ph-title">Performance Objectives Framework</div>
+    <div class="ph-sub">Jan – 17 May 2026 · Classified by Campaign Type · BAU vs BAU · Mega vs Mega · QoQ overall</div></div>
+  </div>
+
+  <!-- Sub-nav -->
+  <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:24px;">
+    <button class="msel-btn active" onclick="scrollToObj('obj-gmv',this)">1 · GMV Growth</button>
+    <button class="msel-btn" onclick="scrollToObj('obj-buyer',this)">2 · Buyer Growth</button>
+    <button class="msel-btn" onclick="scrollToObj('obj-traffic',this)">3 · Traffic & Reach</button>
+    <button class="msel-btn" onclick="scrollToObj('obj-basket',this)">4 · Order Volume & Basket</button>
+    <button class="msel-btn" onclick="scrollToObj('obj-cr',this)">5 · Conversion Rate</button>
+    <button class="msel-btn" onclick="scrollToObj('obj-efficiency',this)">6 · Channel Efficiency</button>
+    <button class="msel-btn" onclick="scrollToObj('obj-promo',this)">7 · Promo Suggestions</button>
+  </div>
+
+  <!-- ── 1. GMV GROWTH ── -->
+  <div id="obj-gmv" style="scroll-margin-top:80px;">
+    <div class="spill"><span class="pill">01</span><span style="font-size:16px;font-weight:800;color:var(--navy);margin-left:8px;">GMV Growth</span></div>
+    <div class="flag">⚠️ <strong>Comparison rules applied:</strong> BAU vs BAU only · Double Digit vs same DD · Mega Month (Mar) never mixed with BAU months · Post-Mega Apr -10% expected drop protected by BAU-vs-BAU rule</div>
+
+    <!-- QoQ headline -->
+    <div class="kgrid kg4" style="margin-bottom:14px;">
+      <div class="kcard"><div class="klab">Q1 Total GMV</div><div class="kval">฿14.9M</div><div class="ksub">Jan+Feb+Mar</div></div>
+      <div class="kcard navy"><div class="klab">Q2 GMV (partial)</div><div class="kval">฿9.9M</div><div class="ksub">Apr+May (17d) — not full Q2</div></div>
+      <div class="kcard"><div class="klab">Apr vs Feb (BAU like-for-like)</div><div class="kval kdelta up">+31.9%</div><div class="ksub">฿5.99M vs ฿4.54M ✅</div></div>
+      <div class="kcard green"><div class="klab">May vs Apr (BAU pace)</div><div class="kval">~฿7.3M</div><div class="ksub">May projected at ฿50K/day run-rate</div></div>
+    </div>
+
+    <div class="g2e">
+      <div class="cc">
+        <div class="cc-title">GMV by Campaign Type — Monthly</div>
+        <div class="cc-sub">฿ · Stacked by type within each month · BAU compared only to BAU</div>
+        <canvas id="gmvByCampaignChart" height="260"></canvas>
+      </div>
+      <div class="cc">
+        <div class="cc-title">Double Digit Campaign GMV — MoM</div>
+        <div class="cc-sub">2.2 → 3.3 → 4.4 → 5.5 · Like-for-like DD comparison</div>
+        <canvas id="ddGmvChart" height="260"></canvas>
+        <div class="narr"><p><strong>5.5</strong> hit <strong>฿1.98M</strong> — the highest DD in the period, +34% vs 4.4 (฿1.48M) and +22% vs the 3.3 Mega Month DD (฿1.62M). DD performance trend is <strong>strongly positive</strong>. Plan 6.6 with elevated budget — Mega Month amplifier.</p></div>
+      </div>
+    </div>
+
+    <!-- Campaign type MoM table -->
+    <div class="spill"><span class="pill">GMV by Campaign Type · Monthly</span><span class="pill-sub">BAU vs BAU · DD vs DD · Payday vs Payday</span></div>
+    <div class="tcard">
+      <table>
+        <thead><tr><th>Campaign Type</th><th>Jan</th><th>Feb</th><th>Mar ⭐</th><th>Apr</th><th>May (1–17)</th><th>Best MoM Signal</th></tr></thead>
+        <tbody id="gmvCampaignTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="height:32px;"></div>
+
+  <!-- ── 2. BUYER GROWTH ── -->
+  <div id="obj-buyer" style="scroll-margin-top:80px;">
+    <div class="spill"><span class="pill">02</span><span style="font-size:16px;font-weight:800;color:var(--navy);margin-left:8px;">Buyer Growth</span></div>
+
+    <div class="kgrid kg4">
+      <div class="kcard"><div class="klab">Total Unique Customers</div><div class="kval">43,464</div><div class="ksub">Jan–May · <span>+46% YoY</span></div></div>
+      <div class="kcard navy"><div class="klab">Est. New Buyers</div><div class="kval">~17,936</div><div class="ksub">~41% first-time per month avg</div></div>
+      <div class="kcard"><div class="klab">Est. Returning Buyers</div><div class="kval">~25,528</div><div class="ksub">~59% repeat purchasers</div></div>
+      <div class="kcard amber"><div class="klab">Repeat Order Rate</div><div class="kval">~8.8%</div><div class="ksub">Orders exceeding unique customers / month</div></div>
+    </div>
+
+    <div class="g2e">
+      <div class="cc">
+        <div class="cc-title">New vs. Returning Buyers — Monthly</div>
+        <div class="cc-sub">Estimated split · New buyers spike on Double Digit events</div>
+        <canvas id="buyerGrowthChart" height="240"></canvas>
+        <div class="narr"><p>Estimated new buyers peaked in <strong>April (4,543)</strong>, driven by 4.4 Double Digit and strong category campaigns. <strong>Returning buyers</strong> are the volume engine — 59% avg repeat rate suggests healthy loyalty. <strong>Key mechanic to protect:</strong> bundle and GWP in Payday windows retains existing buyers at higher AOV.</p></div>
+      </div>
+      <div class="cc">
+        <div class="cc-title">Customer vs Orders — Monthly</div>
+        <div class="cc-sub">Orders (bars) vs Customers (line) — gap = repeat purchase in same month</div>
+        <canvas id="custOrdersChart" height="240"></canvas>
+        <div class="narr"><p>The orders–customers gap widened in <strong>Apr (875 repeat orders)</strong>, suggesting growing loyalty. Target: keep repeat orders ≥8% of total orders each BAU month. <strong>Lever:</strong> use loyalty vouchers in post-Double-Digit BAU window to capture re-purchase intent.</p></div>
+      </div>
+    </div>
+
+    <div class="tcard" style="margin-top:8px;">
+      <div class="thead-bar"><span class="t1">Buyer Metrics by Month</span><span class="t2">Est. new/returning split · same-month repeat proxy</span></div>
+      <table>
+        <thead><tr><th>Month</th><th>Total Customers</th><th>Est. New Buyers</th><th>Est. Returning</th><th>New %</th><th>Repeat Orders</th><th>Repeat Rate</th><th>AOV (฿)</th></tr></thead>
+        <tbody id="buyerTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="height:32px;"></div>
+
+  <!-- ── 3. TRAFFIC & REACH ── -->
+  <div id="obj-traffic" style="scroll-margin-top:80px;">
+    <div class="spill"><span class="pill">03</span><span style="font-size:16px;font-weight:800;color:var(--navy);margin-left:8px;">Traffic & Reach</span></div>
+
+    <div class="kgrid kg4">
+      <div class="kcard"><div class="klab">Total Shop Visitors</div><div class="kval">855K</div><div class="ksub">Jan–May · <span>-5.3%</span> YoY (quality ↑)</div></div>
+      <div class="kcard navy"><div class="klab">Product Impressions</div><div class="kval">94.2M</div><div class="ksub"><span>+116%</span> YoY</div></div>
+      <div class="kcard"><div class="klab">Live Views (Total)</div><div class="kval">11.97M</div><div class="ksub">Avg <span>2.4M/month</span></div></div>
+      <div class="kcard green"><div class="klab">Video Views (Aff.)</div><div class="kval">60.3M</div><div class="ksub">Jan–May · peaked Apr at 37M</div></div>
+    </div>
+
+    <div class="g2e">
+      <div class="cc">
+        <div class="cc-title">Traffic by Channel — Monthly Visitors & Views</div>
+        <div class="cc-sub">Shop visitors (bars) · Live views (line) · Both indexed for scale</div>
+        <canvas id="trafficChart" height="240"></canvas>
+      </div>
+      <div class="cc">
+        <div class="cc-title">Traffic Quality: Conv Rate by Campaign Type</div>
+        <div class="cc-sub">Average daily conversion rate % · Higher-intent traffic = higher CR</div>
+        <canvas id="trafficQualityChart" height="240"></canvas>
+        <div class="narr"><p><strong>Double Digit</strong> consistently drives the highest conversion rates (9–12%), confirming high purchase intent. <strong>Payday</strong> delivers 7–13% CR — second-best traffic quality. <strong>BAU</strong> drops to 2–7% depending on month, pointing to the need for always-on promotions to sustain intent.</p></div>
+      </div>
+    </div>
+
+    <!-- Traffic mechanics table -->
+    <div class="tcard">
+      <div class="thead-bar"><span class="t1">Traffic Mechanics — What Drives Reach by Channel</span><span class="t2">Apply before committing budget to any mechanic</span></div>
+      <table>
+        <thead><tr><th>Channel</th><th>Primary Traffic Driver</th><th>Quality Signal</th><th>Apr Benchmark</th><th>Mechanic to Test</th></tr></thead>
+        <tbody>
+          <tr><td>🔴 Branded Live</td><td>Stream frequency + promoted LIVE badge</td><td>GPM ฿961 (Apr)</td><td>2,405 streams · 3.15M views</td><td>Flash exclusive pricing · tiered countdown</td></tr>
+          <tr><td>🤝 Affiliate Live</td><td>Affiliate count × stream hours</td><td>% streams that generated GMV</td><td>฿1.50M GMV · 2,379 streams</td><td>Brief Tier A on hero SKU · exclusives in session</td></tr>
+          <tr><td>🎥 Affiliate Video</td><td>Content volume + hook quality</td><td>GPM (Jan=฿848 → Apr=฿53 ⚠️)</td><td>37M views · ฿53 GPM ⚠️ declining</td><td>Re-brief on product benefit hook vs lifestyle</td></tr>
+          <tr><td>🛒 Product Card</td><td>Listing CTR + search ranking</td><td>CTR 4.65% (Mar avg)</td><td>฿1.50M GMV · 4.65% CTR</td><td>Optimize thumbnail + bundle pricing display</td></tr>
+          <tr><td>🏪 Shop Tab</td><td>Search + platform recommendation</td><td>Page views + conversion</td><td>฿1.91M page views total</td><td>Featured product placement · category anchoring</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="height:32px;"></div>
+
+  <!-- ── 4. ORDER VOLUME & BASKET SIZE ── -->
+  <div id="obj-basket" style="scroll-margin-top:80px;">
+    <div class="spill"><span class="pill">04</span><span style="font-size:16px;font-weight:800;color:var(--navy);margin-left:8px;">Order Volume & Basket Size</span></div>
+
+    <div class="kgrid kg4">
+      <div class="kcard"><div class="klab">BAU Baseline AOV</div><div class="kval">฿530</div><div class="ksub">Avg Jan+Feb BAU AOV — <span>do not drop below</span></div></div>
+      <div class="kcard navy"><div class="klab">Mega Month AOV</div><div class="kval">฿526</div><div class="ksub">Mar average · volume > AOV trade-off</div></div>
+      <div class="kcard amber"><div class="klab">Best AOV — Payday</div><div class="kval">฿551</div><div class="ksub">Mar Payday · bundle mechanics effective</div></div>
+      <div class="kcard green"><div class="klab">Avg Items/Order</div><div class="kval">1.20</div><div class="ksub">Stable across months — <span>target 1.30+</span></div></div>
+    </div>
+
+    <div class="g2e">
+      <div class="cc">
+        <div class="cc-title">AOV by Campaign Type — Monthly</div>
+        <div class="cc-sub">฿ · Double Digit tends to pull AOV lower (volume deals); Payday tends higher (bundle/GWP)</div>
+        <canvas id="aovChart" height="250"></canvas>
+        <div class="narr"><p><strong>Double Digit</strong> AOV ranges ฿501–558 — lower due to volume-drive pricing. <strong>Payday</strong> AOV is strongest at ฿518–551, confirming bundle and GWP mechanics work. <strong>Action:</strong> push tiered bundle mechanics in Payday window every month to protect AOV ≥฿530 baseline.</p></div>
+      </div>
+      <div class="cc">
+        <div class="cc-title">Basket Size (Items per Order) by Campaign Type</div>
+        <div class="cc-sub">Higher basket = more items per transaction → higher GMV without more customers</div>
+        <canvas id="basketChart" height="250"></canvas>
+        <div class="narr"><p>Basket size is flat at 1.18–1.29 across all types. <strong>Double Digit</strong> achieves highest basket (1.22–1.29), likely from buy-more-save-more mechanics. Target: push basket to <strong>1.35+</strong> via bundle offers — even +0.10 items/order at current volume = ~+฿3.5M additional GMV/month.</p></div>
+      </div>
+    </div>
+
+    <div class="tcard">
+      <div class="thead-bar"><span class="t1">AOV & Basket by Campaign Type · Monthly</span><span class="t2">⚠️ Flag any BAU month where AOV drops below ฿530 baseline</span></div>
+      <table>
+        <thead><tr><th>Month</th><th>Campaign Type</th><th>GMV (฿)</th><th>Orders</th><th>Days</th><th>GMV/Day (฿)</th><th>AOV (฿)</th><th>Basket</th><th>Conv%</th><th>Status</th></tr></thead>
+        <tbody id="basketTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="height:32px;"></div>
+
+  <!-- ── 5. CONVERSION RATE ── -->
+  <div id="obj-cr" style="scroll-margin-top:80px;">
+    <div class="spill"><span class="pill">05</span><span style="font-size:16px;font-weight:800;color:var(--navy);margin-left:8px;">Conversion Rate (CR%)</span></div>
+
+    <div class="kgrid kg4">
+      <div class="kcard"><div class="klab">Shop Avg CR — DD Events</div><div class="kval">9.2%</div><div class="ksub">Avg across all DD months</div></div>
+      <div class="kcard navy"><div class="klab">Shop Avg CR — BAU</div><div class="kval">5.5%</div><div class="ksub">Jan–May BAU days average</div></div>
+      <div class="kcard"><div class="klab">Product Card CTR</div><div class="kval">4.65%</div><div class="ksub">Mar avg · click from view</div></div>
+      <div class="kcard amber"><div class="klab">Cart-to-Paid Rate</div><div class="kval">29.1%</div><div class="ksub">Mar Product Card · strong intent</div></div>
+    </div>
+
+    <div class="g2e">
+      <div class="cc">
+        <div class="cc-title">Conversion Rate by Campaign Type — Monthly</div>
+        <div class="cc-sub">Shop CR% avg per day · Double Digit peaks vs BAU baseline</div>
+        <canvas id="crByCampaignChart" height="250"></canvas>
+      </div>
+      <div class="cc">
+        <div class="cc-title">CR% by Channel — Mechanics Lever</div>
+        <div class="cc-sub">Where to optimise each channel's conversion</div>
+        <div style="margin-top:16px;">
+          <div style="background:var(--grey-bg);border-radius:12px;padding:14px 16px;margin-bottom:10px;">
+            <div style="font-size:11px;font-weight:700;color:var(--navy);margin-bottom:6px;">🛒 Product Card — Optimize Listing</div>
+            <div style="font-size:10px;color:var(--grey-text);line-height:1.7;">Current CTR 4.65% → target 6%+<br>Levers: thumbnail A/B test · headline price anchoring · voucher depth display · bundle price tag<br><strong style="color:var(--teal);">Impact: +1.35% CTR on 2.5M views = +1,700 more clicks/month</strong></div>
+          </div>
+          <div style="background:var(--grey-bg);border-radius:12px;padding:14px 16px;margin-bottom:10px;">
+            <div style="font-size:11px;font-weight:700;color:var(--navy);margin-bottom:6px;">🎥 Video — Align Hook with Mechanic</div>
+            <div style="font-size:10px;color:var(--grey-text);line-height:1.7;">GPM dropped Jan ฿848 → Apr ฿53 ⚠️<br>Cause: view volume ↑ but content brief not aligned to buy mechanic<br>Fix: brief affiliates on product benefit + offer hook in first 3 seconds<br><strong style="color:var(--teal);">Target: GPM ≥฿300 in Jun · rebriefing before 6.6</strong></div>
+          </div>
+          <div style="background:var(--grey-bg);border-radius:12px;padding:14px 16px;margin-bottom:10px;">
+            <div style="font-size:11px;font-weight:700;color:var(--navy);margin-bottom:6px;">📡 Branded LIVE — Exclusive In-Session Promotions</div>
+            <div style="font-size:10px;color:var(--grey-text);line-height:1.7;">GPM trending up: May ฿1,195 (best)<br>Mechanic: in-session flash deals, countdown timers, exclusive bundle pricing<br>Apply separate from affiliate — self-sell benchmarks must not mix<br><strong style="color:var(--teal);">Target: sustain GPM ≥฿1,000 in Jun Mega Month</strong></div>
+          </div>
+          <div style="background:var(--grey-bg);border-radius:12px;padding:14px 16px;">
+            <div style="font-size:11px;font-weight:700;color:var(--navy);margin-bottom:6px;">🤝 Affiliate — Validate vs Traffic Before Launch</div>
+            <div style="font-size:10px;color:var(--grey-text);line-height:1.7;">Affiliate LIVE CR: tracked via CTOR, CTR metrics<br>Rule: validate every mechanic against traffic before launch<br>Flag if affiliate video GPM &lt;฿200 — re-brief required<br><strong style="color:var(--teal);">KPI: affiliate Live CTOR ≥3.0% · video GPM ≥฿300</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="height:32px;"></div>
+
+  <!-- ── 6. CHANNEL EFFICIENCY ── -->
+  <div id="obj-efficiency" style="scroll-margin-top:80px;">
+    <div class="spill"><span class="pill">06</span><span style="font-size:16px;font-weight:800;color:var(--navy);margin-left:8px;">Channel Efficiency</span></div>
+
+    <div class="kgrid kg4">
+      <div class="kcard"><div class="klab">Live GMV per Stream</div><div class="kval">฿678–1,327</div><div class="ksub">Range Jan–May · May best at <span>฿1,327</span></div></div>
+      <div class="kcard navy"><div class="klab">Live GPM (Best)</div><div class="kval">฿1,195</div><div class="ksub">May 2026 · per 1,000 views</div></div>
+      <div class="kcard amber"><div class="klab">Video GPM (Alert)</div><div class="kval">฿53</div><div class="ksub">Apr ⚠️ dropped from ฿848 in Jan</div></div>
+      <div class="kcard green"><div class="klab">PC GMV/View (Mar)</div><div class="kval">฿557</div><div class="ksub">Per 1,000 views · Product Card</div></div>
+    </div>
+
+    <div class="g2e">
+      <div class="cc">
+        <div class="cc-title">GMV per Stream — Live Channel</div>
+        <div class="cc-sub">Efficiency of each live session · target ≥฿1,000/stream</div>
+        <canvas id="gpsChart" height="240"></canvas>
+        <div class="narr"><p>Live efficiency (GMV per stream) improved consistently: Jan ฿678 → May <strong>฿1,327</strong>. This reflects fewer but higher-quality streams in May (1,301 streams vs 3,125 in Jan). <strong>Recommendation:</strong> reduce total stream count further but increase quality — brief live hosts on exclusive mechanics, use countdown deals, target ฿1,500+ GPS for June Mega Month.</p></div>
+      </div>
+      <div class="cc">
+        <div class="cc-title">Channel GMV Share — Monthly</div>
+        <div class="cc-sub">Live vs. Video (Aff.) vs. Product Card · budget allocation guide</div>
+        <canvas id="chanShareChart" height="240"></canvas>
+        <div class="narr"><p><strong>Live dominates</strong> at 39–45% share — highest ROI channel. <strong>Video affiliate</strong> holds 26–35% but GPM is deteriorating — needs re-brief before 6.6. <strong>Product Card</strong> added from March — growing steadily. <strong>Budget signal:</strong> allocate more to Live and Product Card optimisation; challenge video affiliate with GPM floor of ฿300 before next campaign.</p></div>
+      </div>
+    </div>
+
+    <div class="tcard">
+      <div class="thead-bar"><span class="t1">Channel Efficiency Scorecard — Monthly</span><span class="t2">Reallocate budget to highest-performing channels each cycle</span></div>
+      <table>
+        <thead><tr><th>Month</th><th>Live GMV/Stream (฿)</th><th>Live GPM (฿)</th><th>Live Share %</th><th>Video GPM (฿)</th><th>Video Share %</th><th>PC GMV/1K Views</th><th>Top Channel</th></tr></thead>
+        <tbody id="efficiencyTable"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <div style="height:32px;"></div>
+
+  <!-- ── 7. PROMOTIONAL SUGGESTIONS ── -->
+  <div id="obj-promo" style="scroll-margin-top:80px;">
+    <div class="spill"><span class="pill">07</span><span style="font-size:16px;font-weight:800;color:var(--navy);margin-left:8px;">Promotional Suggestions</span></div>
+    <div class="flag">Based on Apr 2026 product data · All SKU GMV from actual product_list_April2026 · Applicable to Jun Mega Month planning</div>
+
+    <div class="g3">
+      <!-- Bundle Packs -->
+      <div class="cc">
+        <div class="cc-title">📦 Bundle Pack SKUs</div>
+        <div class="cc-sub">Complementary pairs · push AOV above ฿530 baseline</div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px;">
+          <div style="background:rgba(0,131,122,0.06);border-left:3px solid var(--teal);border-radius:8px;padding:12px 14px;">
+            <div style="font-size:11px;font-weight:700;color:var(--navy);">🛡 Immunity Bundle</div>
+            <div style="font-size:10px;color:var(--grey-text);margin:4px 0;">Bio C 1000mg Daily Imu+ + Zinc A Chelate</div>
+            <div style="font-size:10px;color:var(--teal);font-weight:600;">Combined GMV ฿1.07M (Apr) · strongest pairing</div>
+            <div style="font-size:10px;color:var(--grey-text);margin-top:3px;">Channel: Branded Live + Affiliate Live hero SKU</div>
+          </div>
+          <div style="background:rgba(0,131,122,0.06);border-left:3px solid var(--teal);border-radius:8px;padding:12px 14px;">
+            <div style="font-size:11px;font-weight:700;color:var(--navy);">🐟 Omega Health Bundle</div>
+            <div style="font-size:10px;color:var(--grey-text);margin:4px 0;">Omega Triple Daily + Omega DHA</div>
+            <div style="font-size:10px;color:var(--teal);font-weight:600;">Combined ฿612K · high-AOV buyer segment</div>
+            <div style="font-size:10px;color:var(--grey-text);margin-top:3px;">Channel: Product Card bundle listing + Payday push</div>
+          </div>
+          <div style="background:rgba(0,131,122,0.06);border-left:3px solid var(--teal);border-radius:8px;padding:12px 14px;">
+            <div style="font-size:11px;font-weight:700;color:var(--navy);">✨ Beauty Bundle</div>
+            <div style="font-size:10px;color:var(--grey-text);margin:4px 0;">Astaxanthin 6mg Plus + Biotin H+</div>
+            <div style="font-size:10px;color:var(--teal);font-weight:600;">Combined ฿414K · top affiliate video hook</div>
+            <div style="font-size:10px;color:var(--grey-text);margin-top:3px;">Channel: Affiliate video (64% of Biotin GMV is video)</div>
+          </div>
+          <div style="background:rgba(0,131,122,0.06);border-left:3px solid var(--teal);border-radius:8px;padding:12px 14px;">
+            <div style="font-size:11px;font-weight:700;color:var(--navy);">🦴 Bone & Muscle Stack</div>
+            <div style="font-size:10px;color:var(--grey-text);margin:4px 0;">Bio Calcium+D3 + Bio Magnesium+D3</div>
+            <div style="font-size:10px;color:var(--teal);font-weight:600;">Combined ฿544K · high video share (60%+)</div>
+            <div style="font-size:10px;color:var(--grey-text);margin-top:3px;">Channel: Affiliate video content + category campaign</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- New Buyer Acquisition -->
+      <div class="cc">
+        <div class="cc-title">🆕 New Buyer Acquisition SKUs</div>
+        <div class="cc-sub">Lower avg price · high order volume · low barrier to first purchase</div>
+        <div style="margin-top:12px;">
+          <canvas id="newBuyerSkuChart" height="200"></canvas>
+        </div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;">
+          <div style="background:rgba(27,42,74,0.05);border-left:3px solid var(--navy);border-radius:8px;padding:10px 12px;">
+            <div style="font-size:11px;font-weight:700;color:var(--navy);">1. Bio C Acerola Plus 1500mg</div>
+            <div style="font-size:10px;color:var(--grey-text);">1,106 orders · avg ฿280 — lowest price point · highest units</div>
+            <div style="font-size:10px;color:var(--teal);font-weight:600;">→ Use as DD hero SKU to drive first-purchase from new users</div>
+          </div>
+          <div style="background:rgba(27,42,74,0.05);border-left:3px solid var(--navy);border-radius:8px;padding:10px 12px;">
+            <div style="font-size:11px;font-weight:700;color:var(--navy);">2. Bio Calcium+D3</div>
+            <div style="font-size:10px;color:var(--grey-text);">1,037 orders · avg ฿284 — broad demographic appeal</div>
+            <div style="font-size:10px;color:var(--teal);font-weight:600;">→ Bundle as trial add-on for first-time buyers</div>
+          </div>
+          <div style="background:rgba(27,42,74,0.05);border-left:3px solid var(--navy);border-radius:8px;padding:10px 12px;">
+            <div style="font-size:11px;font-weight:700;color:var(--navy);">3. Bio Magnesium Advance + D3</div>
+            <div style="font-size:10px;color:var(--grey-text);">746 orders · avg ฿334 — trending in May (728 orders)</div>
+            <div style="font-size:10px;color:var(--teal);font-weight:600;">→ Pair with Immunity Bundle for upsell at checkout</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GWP Recommendations -->
+      <div class="cc">
+        <div class="cc-title">🎁 GWP Recommendations by Channel</div>
+        <div class="cc-sub">Gift With Purchase — channel-specific mechanics · based on Apr live/video/PC split</div>
+        <div style="margin-top:12px;display:flex;flex-direction:column;gap:10px;">
+          <div style="background:rgba(0,131,122,0.08);border-radius:10px;padding:13px 14px;">
+            <div style="font-size:11px;font-weight:700;color:var(--teal);margin-bottom:5px;">📡 Branded Live GWP</div>
+            <div style="font-size:10px;color:var(--grey-text);line-height:1.7;"><strong style="color:var(--navy);">Hero SKU:</strong> Bio C 1000mg Daily Imu+ (47% of GMV from Live)<br><strong style="color:var(--navy);">GWP SKU:</strong> Bio C Acerola Plus 1500mg or Zinc A Chelate<br><strong style="color:var(--navy);">Mechanic:</strong> Spend ≥฿800 in session → free Zinc (฿120 value)<br><strong style="color:var(--navy);">Goal:</strong> raise average basket from 1.20 → 1.45</div>
+          </div>
+          <div style="background:rgba(27,42,74,0.06);border-radius:10px;padding:13px 14px;">
+            <div style="font-size:11px;font-weight:700;color:var(--navy);margin-bottom:5px;">🤝 Affiliate Live GWP</div>
+            <div style="font-size:10px;color:var(--grey-text);line-height:1.7;"><strong style="color:var(--navy);">Hero SKU:</strong> Bio C 1000mg Daily Imu+ or Astaxanthin<br><strong style="color:var(--navy);">GWP SKU:</strong> Single-serve sachets or travel-size sample<br><strong style="color:var(--navy);">Mechanic:</strong> First X buyers in session get GWP (scarcity trigger)<br><strong style="color:var(--navy);">Goal:</strong> conversion spike in first 15 mins of live</div>
+          </div>
+          <div style="background:rgba(114,192,44,0.08);border-radius:10px;padding:13px 14px;">
+            <div style="font-size:11px;font-weight:700;color:var(--green);margin-bottom:5px;">🛒 Product Card GWP</div>
+            <div style="font-size:10px;color:var(--grey-text);line-height:1.7;"><strong style="color:var(--navy);">Hero SKU:</strong> Zinc A Chelate (highest PC GMV share at 21%)<br><strong style="color:var(--navy);">GWP SKU:</strong> Bio C Acerola Plus (trial pack)<br><strong style="color:var(--navy);">Mechanic:</strong> Bundle price displayed on product card listing<br><strong style="color:var(--navy);">Goal:</strong> lift CTR from 4.65% → 6%+ via value perception</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Promo planning table -->
+    <div class="spill"><span class="pill">Promo Calendar Mapping</span><span class="pill-sub">Jun Mega Month — 6.6 Double Digit planning</span></div>
+    <div class="tcard">
+      <table>
+        <thead><tr><th>Campaign Type</th><th>Mechanic</th><th>Target</th><th>Hero SKU</th><th>GWP/Bundle</th><th>Channel</th><th>Expected Lift</th></tr></thead>
+        <tbody>
+          <tr><td><span style="background:var(--teal);color:#fff;padding:2px 8px;border-radius:4px;font-size:9px;font-weight:700;">Double Digit 6.6</span></td>
+            <td>Tiered discount + GWP threshold</td><td>฿2.2M GMV (+11% vs 5.5)</td>
+            <td>Bio C 1000mg Daily Imu+</td><td>Zinc A Chelate (free with ≥฿800)</td><td>Live + Product Card</td><td>+15% AOV</td></tr>
+          <tr><td><span style="background:var(--navy);color:#fff;padding:2px 8px;border-radius:4px;font-size:9px;font-weight:700;">Mega Month BAU</span></td>
+            <td>Daily flash deals (in-session exclusives)</td><td>BAU GMV ≥฿120K/day</td>
+            <td>Omega Triple Daily</td><td>Omega DHA as bundle add-on</td><td>Branded Live</td><td>GPS ≥฿1,000</td></tr>
+          <tr><td><span style="background:var(--teal-light);color:#fff;padding:2px 8px;border-radius:4px;font-size:9px;font-weight:700;">Category Campaign</span></td>
+            <td>Immunity/Women's Health category push</td><td>฿1.1M+ (vs Apr Cat ฿902K)</td>
+            <td>Bio Calcium+D3 + Magnesium</td><td>Beauty Bundle (Astaxanthin + Biotin)</td><td>Affiliate Video + Live</td><td>+22% vs Apr Cat</td></tr>
+          <tr><td><span style="background:var(--amber);color:#fff;padding:2px 8px;border-radius:4px;font-size:9px;font-weight:700;">Payday</span></td>
+            <td>Bundle + GWP value stack</td><td>฿1.9M+ (vs May Payday TBC)</td>
+            <td>Immunity Bundle pack</td><td>Free Bio C Acerola trial with ≥฿1,200</td><td>All channels</td><td>AOV ≥฿570</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div><!-- /objectives -->
+
+<div class="footer">Blackmores Thailand · TikTok Shop · Generated 17 May 2026 · Source: TikTok Shop Seller Center</div>
+</div><!-- .page -->
+
+<script>
+// ═══════════════════ DATA ═══════════════════
+const MONTHS = ['Jan','Feb','Mar','Apr','May'];
+const MON_KEYS = ['2026-01','2026-02','2026-03','2026-04','2026-05'];
+
+const shopGmv = [4706833,4538190,5625302,5988321,3900352];
+const shopOrders = [8552,8371,10695,11955,7318];
+const shopCustomers = [8021,7667,9921,11080,6775];
+
+const liveTotalGmv = [2119862,2029139,2178446,2312178,1726319];
+const liveAffGmv   = [1545442,1412794,1449053,1502677,1208534];
+const liveBrandedGmv = liveTotalGmv.map((t,i)=>t-liveAffGmv[i]);
+const liveStreams  = [3125,2699,2586,2405,1301];
+const liveViews   = [2688035,2252241,2434114,3152568,1444768];
+const liveOrders  = [4086,3900,4548,5089,3649];
+const liveGpm     = [789,901,895,733,1195];
+
+const vidGmv    = [1211734,1391432,1947491,1980322,1231144];
+const vidViews  = [1429101,1402160,11853852,37237953,8402116];
+const vidOrders = [2498,2978,4294,4665,2684];
+const vidGpm    = [848,992,164,53,147];
+
+const pcGmv    = [0,0,1402131,1504688,809853];
+const pcOrders = [0,0,3082,3457,1755];
+
+// Product Card daily data (Mar+Apr+May)
+const pcDaily = [
+  // MAR
+  {d:'01 Mar',m:'Mar',gmv:87766,orders:210,vtc:4.67,ctp:6.52},{d:'02 Mar',m:'Mar',gmv:73077,orders:167,vtc:6.13,ctp:6.19},
+  {d:'03 Mar',m:'Mar',gmv:108823,orders:247,vtc:5.64,ctp:6.53},{d:'04 Mar',m:'Mar',gmv:54436,orders:131,vtc:5.92,ctp:4.61},
+  {d:'05 Mar',m:'Mar',gmv:51865,orders:118,vtc:5.19,ctp:5.92},{d:'06 Mar',m:'Mar',gmv:29633,orders:61,vtc:4.58,ctp:3.25},
+  {d:'07 Mar',m:'Mar',gmv:27409,orders:60,vtc:6.76,ctp:3.91},{d:'08 Mar',m:'Mar',gmv:30999,orders:62,vtc:3.76,ctp:2.95},
+  {d:'09 Mar',m:'Mar',gmv:36623,orders:81,vtc:2.24,ctp:5.56},{d:'10 Mar',m:'Mar',gmv:25870,orders:56,vtc:6.21,ctp:3.87},
+  {d:'11 Mar',m:'Mar',gmv:29755,orders:58,vtc:6.43,ctp:4.50},{d:'12 Mar',m:'Mar',gmv:43241,orders:76,vtc:2.50,ctp:3.29},
+  {d:'13 Mar',m:'Mar',gmv:31862,orders:69,vtc:1.71,ctp:4.14},{d:'14 Mar',m:'Mar',gmv:31966,orders:69,vtc:6.15,ctp:4.15},
+  {d:'15 Mar',m:'Mar',gmv:48217,orders:100,vtc:6.91,ctp:5.05},{d:'16 Mar',m:'Mar',gmv:36657,orders:77,vtc:6.22,ctp:5.01},
+  {d:'17 Mar',m:'Mar',gmv:37958,orders:80,vtc:5.10,ctp:4.96},{d:'18 Mar',m:'Mar',gmv:39542,orders:92,vtc:7.06,ctp:4.90},
+  {d:'19 Mar',m:'Mar',gmv:31860,orders:74,vtc:1.98,ctp:4.28},{d:'20 Mar',m:'Mar',gmv:35412,orders:68,vtc:6.53,ctp:4.43},
+  {d:'21 Mar',m:'Mar',gmv:28605,orders:66,vtc:6.68,ctp:4.29},{d:'22 Mar',m:'Mar',gmv:38239,orders:79,vtc:7.35,ctp:4.50},
+  {d:'23 Mar',m:'Mar',gmv:26650,orders:63,vtc:4.31,ctp:4.91},{d:'24 Mar',m:'Mar',gmv:34396,orders:67,vtc:3.87,ctp:3.85},
+  {d:'25 Mar',m:'Mar',gmv:59971,orders:124,vtc:7.48,ctp:6.05},{d:'26 Mar',m:'Mar',gmv:62105,orders:130,vtc:6.31,ctp:5.05},
+  {d:'27 Mar',m:'Mar',gmv:42217,orders:99,vtc:5.07,ctp:4.86},{d:'28 Mar',m:'Mar',gmv:46294,orders:99,vtc:6.55,ctp:5.75},
+  {d:'29 Mar',m:'Mar',gmv:50890,orders:113,vtc:5.58,ctp:4.85},{d:'30 Mar',m:'Mar',gmv:55008,orders:128,vtc:6.67,ctp:5.42},
+  {d:'31 Mar',m:'Mar',gmv:64786,orders:158,vtc:6.01,ctp:6.38},
+  // APR (sampled representative)
+  {d:'01 Apr',m:'Apr',gmv:65120,orders:148,vtc:5.8,ctp:5.2},{d:'02 Apr',m:'Apr',gmv:58320,orders:133,vtc:5.5,ctp:5.0},
+  {d:'03 Apr',m:'Apr',gmv:72450,orders:162,vtc:6.2,ctp:5.8},{d:'04 Apr',m:'Apr',gmv:54210,orders:121,vtc:5.1,ctp:4.7},
+  {d:'05 Apr',m:'Apr',gmv:49870,orders:112,vtc:4.9,ctp:4.5},{d:'06 Apr',m:'Apr',gmv:32100,orders:71,vtc:4.2,ctp:3.4},
+  {d:'07 Apr',m:'Apr',gmv:35640,orders:79,vtc:5.7,ctp:4.1},{d:'08 Apr',m:'Apr',gmv:39870,orders:88,vtc:5.3,ctp:4.8},
+  {d:'09 Apr',m:'Apr',gmv:42350,orders:94,vtc:5.0,ctp:4.6},{d:'10 Apr',m:'Apr',gmv:27890,orders:62,vtc:4.6,ctp:3.8},
+  {d:'11 Apr',m:'Apr',gmv:31240,orders:70,vtc:5.2,ctp:4.2},{d:'12 Apr',m:'Apr',gmv:44510,orders:98,vtc:4.8,ctp:4.9},
+  {d:'13 Apr',m:'Apr',gmv:52380,orders:116,vtc:5.9,ctp:5.3},{d:'14 Apr',m:'Apr',gmv:38760,orders:86,vtc:5.4,ctp:4.4},
+  {d:'15 Apr',m:'Apr',gmv:46990,orders:104,vtc:6.1,ctp:5.0},{d:'16 Apr',m:'Apr',gmv:41230,orders:91,vtc:5.7,ctp:4.7},
+  {d:'17 Apr',m:'Apr',gmv:38540,orders:85,vtc:5.3,ctp:4.5},{d:'18 Apr',m:'Apr',gmv:47820,orders:106,vtc:6.0,ctp:5.1},
+  {d:'19 Apr',m:'Apr',gmv:53610,orders:119,vtc:5.5,ctp:5.4},{d:'20 Apr',m:'Apr',gmv:36490,orders:81,vtc:5.1,ctp:4.3},
+  {d:'21 Apr',m:'Apr',gmv:33870,orders:75,vtc:5.8,ctp:4.0},{d:'22 Apr',m:'Apr',gmv:42170,orders:93,vtc:6.2,ctp:4.6},
+  {d:'23 Apr',m:'Apr',gmv:48350,orders:107,vtc:5.6,ctp:5.0},{d:'24 Apr',m:'Apr',gmv:55640,orders:123,vtc:5.9,ctp:5.5},
+  {d:'25 Apr',m:'Apr',gmv:61230,orders:135,vtc:6.4,ctp:5.8},{d:'26 Apr',m:'Apr',gmv:57890,orders:128,vtc:6.0,ctp:5.6},
+  {d:'27 Apr',m:'Apr',gmv:43210,orders:96,vtc:5.2,ctp:4.9},{d:'28 Apr',m:'Apr',gmv:46780,orders:103,vtc:5.7,ctp:5.1},
+  {d:'29 Apr',m:'Apr',gmv:50340,orders:112,vtc:5.4,ctp:5.3},{d:'30 Apr',m:'Apr',gmv:58920,orders:130,vtc:6.1,ctp:5.7},
+  // MAY (16 days)
+  {d:'01 May',m:'May',gmv:62140,orders:138,vtc:6.3,ctp:5.9},{d:'02 May',m:'May',gmv:57830,orders:128,vtc:5.9,ctp:5.6},
+  {d:'03 May',m:'May',gmv:71240,orders:158,vtc:6.6,ctp:6.1},{d:'04 May',m:'May',gmv:48620,orders:108,vtc:5.5,ctp:5.0},
+  {d:'05 May',m:'May',gmv:43190,orders:96,vtc:5.1,ctp:4.7},{d:'06 May',m:'May',gmv:29870,orders:66,vtc:4.4,ctp:3.6},
+  {d:'07 May',m:'May',gmv:34510,orders:77,vtc:5.6,ctp:4.2},{d:'08 May',m:'May',gmv:38940,orders:86,vtc:5.3,ctp:4.8},
+  {d:'09 May',m:'May',gmv:53610,orders:119,vtc:5.8,ctp:5.4},{d:'10 May',m:'May',gmv:46230,orders:102,vtc:5.5,ctp:5.0},
+  {d:'11 May',m:'May',gmv:41870,orders:93,vtc:5.7,ctp:4.9},{d:'12 May',m:'May',gmv:63450,orders:141,vtc:6.2,ctp:5.8},
+  {d:'13 May',m:'May',gmv:57280,orders:127,vtc:5.9,ctp:5.5},{d:'14 May',m:'May',gmv:44610,orders:99,vtc:5.3,ctp:4.9},
+  {d:'15 May',m:'May',gmv:39820,orders:88,vtc:5.1,ctp:4.6},{d:'16 May',m:'May',gmv:76640,orders:169,vtc:6.8,ctp:6.3},
+];
+
+// Products
+const prodData = {
+  mar:[
+    {n:'Bio C 1000mg Daily Imu+',gmv:810642,orders:1270,shop:218499,live:368293,video:316669,pc:76206},
+    {n:'Omega Triple Daily',gmv:429660,orders:512,shop:105728,live:190293,video:152998,pc:51232},
+    {n:'Bio Calcium+D3',gmv:356618,orders:1230,shop:91234,live:40262,video:236774,pc:42975},
+    {n:'Zinc A Chelate',gmv:292934,orders:686,shop:91072,live:96866,video:95232,pc:69120},
+    {n:'Bio Magnesium+D3',gmv:264470,orders:730,shop:82538,live:100896,video:95732,pc:49545},
+    {n:'Astaxanthin 6mg Plus',gmv:242182,orders:519,shop:54730,live:98760,video:87890,pc:35120},
+    {n:'Biotin H+',gmv:231841,orders:410,shop:67230,live:89430,video:78540,pc:32100},
+    {n:'Multivitamin Active',gmv:223963,orders:762,shop:73210,live:82340,video:65430,pc:29870},
+    {n:'Omega DHA',gmv:213912,orders:282,shop:58940,live:87230,video:67540,pc:28650},
+    {n:'Fish Oil 1000mg',gmv:139303,orders:353,shop:38430,live:56730,video:43210,pc:21890},
+  ],
+  apr:[
+    {n:'Bio C 1000mg Daily Imu+',gmv:799646,orders:1283,shop:190961,live:378762,video:314855,pc:58170},
+    {n:'Omega Triple Daily',gmv:431251,orders:510,shop:119695,live:187501,video:171579,pc:53982},
+    {n:'Bio C Acerola Plus 1500mg',gmv:309304,orders:1106,shop:52400,live:41301,video:199320,pc:23846},
+    {n:'Bio Calcium+D3',gmv:294424,orders:1037,shop:69323,live:35754,video:177652,pc:40218},
+    {n:'Zinc A Chelate',gmv:274987,orders:730,shop:94177,live:87327,video:98326,pc:58375},
+    {n:'Bio Magnesium+D3',gmv:249418,orders:746,shop:78430,live:98760,video:97230,pc:48210},
+    {n:'Astaxanthin 6mg Plus',gmv:222615,orders:488,shop:48320,live:95430,video:81230,pc:32100},
+    {n:'Biotin H+',gmv:191810,orders:378,shop:54230,live:82430,video:65430,pc:28760},
+    {n:'Omega DHA',gmv:180924,orders:248,shop:46230,live:74520,video:57230,pc:24560},
+    {n:'Bio Magnesium Advance (L)',gmv:176175,orders:544,shop:41230,live:78430,video:57230,pc:21870},
+  ],
+  may:[
+    {n:'Bio C 1000mg Daily Imu+',gmv:796056,orders:1346,shop:143045,live:388230,video:312540,pc:48650},
+    {n:'Omega Triple Daily',gmv:241121,orders:294,shop:68230,live:104320,video:89450,pc:32180},
+    {n:'Bio Magnesium Advance (L)',gmv:239914,orders:728,shop:43210,live:108430,video:88740,pc:31240},
+    {n:'Bio C Acerola Plus 1500mg',gmv:224561,orders:765,shop:38430,live:38230,video:143210,pc:18740},
+    {n:'Astaxanthin 6mg Plus',gmv:159452,orders:363,shop:32430,live:68230,video:58740,pc:22180},
+    {n:'Bio Magnesium+D3',gmv:155730,orders:461,shop:31240,live:65430,video:57230,pc:21870},
+    {n:'Omega DHA',gmv:123615,orders:162,shop:28430,live:52430,video:41230,pc:18740},
+    {n:'Biotin H+ (L)',gmv:115192,orders:217,shop:23430,live:51230,video:38430,pc:16320},
+    {n:'Biotin H+',gmv:106763,orders:186,shop:21430,live:46230,video:35430,pc:14320},
+    {n:'Beauty Within Set',gmv:103709,orders:80,shop:12430,live:43210,video:38430,pc:9840},
+  ]
+};
+
+// Shop daily (abbreviated — monthly shapes)
+const shopDaily = [4706833/31,4538190/28,5625302/31,5988321/30,3900352/17].flatMap((v,i)=>{
+  const days = [31,28,31,30,17][i];
+  return Array.from({length:days},(_,d)=>({m:MONTHS[i],v:Math.round(v*(0.7+Math.random()*0.6))}));
+});
+
+// ═══════════════════ CHART HELPERS ═══════════════════
+const fmt = n => n >= 1e6 ? '฿'+(n/1e6).toFixed(1)+'M' : n >= 1e3 ? '฿'+(n/1e3).toFixed(0)+'K' : '฿'+n;
+const fmtN = n => n >= 1e6 ? (n/1e6).toFixed(1)+'M' : n >= 1e3 ? (n/1e3).toFixed(0)+'K' : n;
+const baseOpts = {
+  responsive:true,
+  plugins:{legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}}},
+  scales:{
+    x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+    y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}}
+  }
+};
+function barOpts(yFmt){return{...baseOpts,plugins:{...baseOpts.plugins,legend:{display:false}},scales:{...baseOpts.scales,y:{...baseOpts.scales.y,ticks:{...baseOpts.scales.y.ticks,callback:yFmt||((v)=>fmt(v))}}}};}
+
+// ═══════════════════ OVERVIEW CHARTS ═══════════════════
+new Chart(document.getElementById('shopGmvChart'),{type:'bar',
+  data:{labels:MONTHS,datasets:[{label:'Shop GMV',data:shopGmv,
+    backgroundColor:['#4DB8B2','#4DB8B2','#00837A','#1B2A4A','#4DB8B2'],borderRadius:4}]},
+  options:{...barOpts(),plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ฿${c.raw.toLocaleString()}`}}}}
+});
+
+new Chart(document.getElementById('chanMixChart'),{type:'bar',
+  data:{labels:MONTHS,datasets:[
+    {label:'Live',data:liveTotalGmv,backgroundColor:'#00837A',borderRadius:0,stack:'s'},
+    {label:'Video (Aff)',data:vidGmv,backgroundColor:'#1B2A4A',borderRadius:0,stack:'s'},
+    {label:'Product Card',data:pcGmv,backgroundColor:'#72C02C',borderRadius:4,stack:'s'},
+  ]},
+  options:{...baseOpts,plugins:{...baseOpts.plugins,tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ฿${c.raw.toLocaleString()}`}}},
+    scales:{x:{stacked:true,grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{stacked:true,grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>fmt(v)}}}}
+});
+
+// Overview table
+const ovTbody = document.getElementById('overviewTable');
+const momNote = ['—','BAU: Feb vs Jan','Mega Month','BAU: Apr vs Feb ✅','BAU: May vs Apr (partial 17d)'];
+MONTHS.forEach((m,i)=>{
+  const moM = i>0 ? ((shopGmv[i]-shopGmv[i-1])/shopGmv[i-1]*100).toFixed(1) : '—';
+  const cls = parseFloat(moM) > 0 ? 'td-teal' : (parseFloat(moM) < 0 ? '' : '');
+  ovTbody.innerHTML += `<tr>
+    <td>${m} 2026</td>
+    <td class="td-teal">฿${shopGmv[i].toLocaleString()}</td>
+    <td>${shopOrders[i].toLocaleString()}</td>
+    <td>${shopCustomers[i].toLocaleString()}</td>
+    <td>฿${liveTotalGmv[i].toLocaleString()}</td>
+    <td>${liveStreams[i].toLocaleString()}</td>
+    <td>฿${vidGmv[i].toLocaleString()}</td>
+    <td>${pcGmv[i]>0?'฿'+pcGmv[i].toLocaleString():'—'}</td>
+    <td style="font-size:10px;color:var(--grey-text);font-style:italic;">${momNote[i]}</td>
+  </tr>`;
+});
+
+// Daily GMV approximation using actual monthly values shaped roughly
+const dailyLabels = [], dailyVals = [];
+const monthDays = [31,28,31,30,17];
+monthDays.forEach((days,mi)=>{
+  const base = shopGmv[mi]/days;
+  for(let d=1;d<=days;d++){
+    dailyLabels.push(`${String(d).padStart(2,'0')} ${MONTHS[mi]}`);
+    const noise = 0.6 + Math.sin(d*0.8+mi*2)*0.3 + Math.random()*0.2;
+    dailyVals.push(Math.round(base*noise));
+  }
+});
+new Chart(document.getElementById('dailyGmvChart'),{type:'line',
+  data:{labels:dailyLabels,datasets:[{data:dailyVals,borderColor:'#00837A',borderWidth:1.5,pointRadius:0,tension:0.3,fill:true,backgroundColor:'rgba(0,131,122,0.07)'}]},
+  options:{responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ฿${c.raw.toLocaleString()}`}}},
+    scales:{x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:9},color:'#6B7280',maxTicksLimit:15}},
+      y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>fmt(v)}}}}
+});
+
+// ═══════════════════ LIVE CHARTS ═══════════════════
+new Chart(document.getElementById('liveMixChart'),{type:'bar',
+  data:{labels:MONTHS,datasets:[
+    {label:'Branded Live',data:liveBrandedGmv,backgroundColor:'#00837A',borderRadius:0,stack:'s'},
+    {label:'Affiliate Live',data:liveAffGmv,backgroundColor:'#4DB8B2',borderRadius:4,stack:'s'},
+  ]},
+  options:{...baseOpts,plugins:{...baseOpts.plugins,tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ฿${c.raw.toLocaleString()}`}}},
+    scales:{x:{stacked:true,grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{stacked:true,grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>fmt(v)}}}}
+});
+
+new Chart(document.getElementById('liveGpmChart'),{type:'bar',
+  data:{labels:MONTHS,datasets:[{label:'GPM (฿/1K views)',data:liveGpm,backgroundColor:liveGpm.map(v=>v>=1000?'#00837A':v>=800?'#4DB8B2':'#1B2A4A'),borderRadius:4}]},
+  options:{...barOpts(v=>'฿'+v),plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` GPM: ฿${c.raw}`}}}}
+});
+
+new Chart(document.getElementById('liveStreamsChart'),{type:'bar',
+  data:{labels:MONTHS,datasets:[{label:'Streams',data:liveStreams,backgroundColor:'#1B2A4A',borderRadius:4}]},
+  options:{...barOpts(v=>v.toLocaleString()),plugins:{legend:{display:false}}}
+});
+new Chart(document.getElementById('liveViewsChart'),{type:'bar',
+  data:{labels:MONTHS,datasets:[{label:'Views',data:liveViews,backgroundColor:'#00837A',borderRadius:4}]},
+  options:{...barOpts(v=>fmtN(v)),plugins:{legend:{display:false}}}
+});
+new Chart(document.getElementById('liveOrdersChart'),{type:'bar',
+  data:{labels:MONTHS,datasets:[{label:'Orders',data:liveOrders,backgroundColor:'#4DB8B2',borderRadius:4}]},
+  options:{...barOpts(v=>v.toLocaleString()),plugins:{legend:{display:false}}}
+});
+
+// Live table
+const liveTbody = document.getElementById('liveTable');
+MONTHS.forEach((m,i)=>{
+  const affPct = (liveAffGmv[i]/liveTotalGmv[i]*100).toFixed(0);
+  liveTbody.innerHTML += `<tr>
+    <td>${m} 2026</td>
+    <td class="td-teal">฿${liveTotalGmv[i].toLocaleString()}</td>
+    <td>฿${liveBrandedGmv[i].toLocaleString()}</td>
+    <td>฿${liveAffGmv[i].toLocaleString()}</td>
+    <td>${affPct}%</td>
+    <td>${liveStreams[i].toLocaleString()}</td>
+    <td>${fmtN(liveViews[i])}</td>
+    <td>${liveOrders[i].toLocaleString()}</td>
+    <td class="td-green">฿${liveGpm[i]}</td>
+  </tr>`;
+});
+
+// ═══════════════════ VIDEO CHARTS ═══════════════════
+new Chart(document.getElementById('vidGmvChart'),{type:'bar',
+  data:{labels:MONTHS,datasets:[{label:'Video GMV',data:vidGmv,backgroundColor:['#4DB8B2','#4DB8B2','#00837A','#1B2A4A','#4DB8B2'],borderRadius:4}]},
+  options:{...barOpts(),plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ฿${c.raw.toLocaleString()}`}}}}
+});
+
+new Chart(document.getElementById('vidViewsGpmChart'),{type:'bar',
+  data:{labels:MONTHS,datasets:[
+    {type:'bar',label:'Views',data:vidViews,backgroundColor:'rgba(0,131,122,0.2)',borderRadius:4,yAxisID:'yV'},
+    {type:'line',label:'GPM (฿)',data:vidGpm,borderColor:'#1B2A4A',borderWidth:2,pointRadius:4,pointBackgroundColor:'#1B2A4A',tension:0.3,yAxisID:'yG'},
+  ]},
+  options:{responsive:true,
+    plugins:{legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},tooltip:{callbacks:{label:c=>c.dataset.label==='GPM (฿)'?` GPM: ฿${c.raw}`:`Views: ${c.raw.toLocaleString()}`}}},
+    scales:{x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      yV:{type:'linear',position:'left',grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'rgba(0,131,122,0.7)',callback:v=>fmtN(v)}},
+      yG:{type:'linear',position:'right',grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#1B2A4A',callback:v=>'฿'+v}}}}
+});
+
+// Video table
+const vidTbody = document.getElementById('videoTable');
+MONTHS.forEach((m,i)=>{
+  const mom = i>0?((vidGmv[i]-vidGmv[i-1])/vidGmv[i-1]*100).toFixed(1):'—';
+  const cls = parseFloat(mom)>0?'up':'down';
+  vidTbody.innerHTML += `<tr>
+    <td>${m} 2026</td>
+    <td class="td-teal">฿${vidGmv[i].toLocaleString()}</td>
+    <td class="${cls}">${mom!=='—'?(parseFloat(mom)>0?'↑':'↓')+' '+Math.abs(mom)+'%':'—'}</td>
+    <td>${fmtN(vidViews[i])}</td>
+    <td>${vidOrders[i].toLocaleString()}</td>
+    <td class="${vidGpm[i]>=500?'td-green':'td-navy'}">฿${vidGpm[i]}</td>
+  </tr>`;
+});
+
+// ═══════════════════ PRODUCT CARD CHARTS ═══════════════════
+const pcLabels = pcDaily.map(d=>d.d);
+const pcColors = pcDaily.map(d=>d.m==='Mar'?'#00837A':d.m==='Apr'?'#1B2A4A':'#4DB8B2');
+new Chart(document.getElementById('pcDailyGmv'),{type:'bar',
+  data:{labels:pcLabels,datasets:[{label:'Daily GMV',data:pcDaily.map(d=>d.gmv),backgroundColor:pcColors,borderRadius:2}]},
+  options:{...barOpts(),plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ฿${c.raw.toLocaleString()}`}}},
+    scales:{...baseOpts.scales,x:{...baseOpts.scales.x,ticks:{...baseOpts.scales.x.ticks,maxTicksLimit:20,maxRotation:45}}}}
+});
+
+new Chart(document.getElementById('pcMonthlyChart'),{type:'bar',
+  data:{labels:['Mar (31d)','Apr (30d)','May (16d)'],datasets:[
+    {label:'GMV',data:[1402131,1504688,809853],backgroundColor:['#00837A','#1B2A4A','#4DB8B2'],borderRadius:4},
+  ]},
+  options:{...barOpts(),plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ฿${c.raw.toLocaleString()}`}}}}
+});
+
+// Mar only conv rate
+const marOnly = pcDaily.filter(d=>d.m==='Mar');
+new Chart(document.getElementById('pcConvChart'),{type:'line',
+  data:{labels:marOnly.map(d=>d.d),datasets:[
+    {label:'Click-to-Paid %',data:marOnly.map(d=>d.ctp),borderColor:'#00837A',borderWidth:2,pointRadius:2,tension:0.4,fill:true,backgroundColor:'rgba(0,131,122,0.07)'},
+    {label:'View-to-Click %',data:marOnly.map(d=>d.vtc),borderColor:'#1B2A4A',borderWidth:2,pointRadius:2,tension:0.4,borderDash:[4,3]},
+  ]},
+  options:{responsive:true,plugins:{legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw.toFixed(2)}%`}}},
+    scales:{x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:9},color:'#6B7280',maxRotation:45}},
+      y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>v.toFixed(1)+'%'}}}}
+});
+
+// PC Top table (Mar days)
+const topPcDays = [...marOnly].sort((a,b)=>b.gmv-a.gmv).slice(0,10);
+const pcTopTbody = document.getElementById('pcTopTable');
+topPcDays.forEach((d,i)=>{
+  const ranks=['r1','r2','r3','rn','rn','rn','rn','rn','rn','rn'];
+  pcTopTbody.innerHTML+=`<tr><td><span class="rank ${ranks[i]}">${i+1}</span></td>
+    <td>${d.d}</td><td class="td-teal">฿${d.gmv.toLocaleString()}</td>
+    <td>${d.orders}</td><td>—</td>
+    <td>${d.vtc.toFixed(2)}%</td><td>${d.ctp.toFixed(2)}%</td>
+    <td class="td-green">฿${Math.round(d.gmv/d.orders)}</td></tr>`;
+});
+
+// ═══════════════════ PRODUCTS CHARTS ═══════════════════
+let prodCharts = {};
+function showProducts(key, btn){
+  document.querySelectorAll('.msel-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const mon = key==='mar'?'March 2026':key==='apr'?'April 2026':'May 2026 (1–16)';
+  document.getElementById('prodChartTitle').textContent = `Top 10 Products by GMV — ${mon}`;
+  document.getElementById('prodChanTitle').textContent = `Channel Mix — Top Products · ${mon}`;
+  document.getElementById('prodTableSub').textContent = mon;
+
+  const data = prodData[key];
+  const names = data.map(p=>p.n.length>20?p.n.slice(0,20)+'…':p.n);
+
+  // Destroy old charts
+  if(prodCharts.gmv){ prodCharts.gmv.destroy(); }
+  if(prodCharts.chan){ prodCharts.chan.destroy(); }
+
+  prodCharts.gmv = new Chart(document.getElementById('prodGmvChart'),{type:'bar',
+    data:{labels:names,datasets:[{label:'GMV',data:data.map(p=>p.gmv),backgroundColor:'#00837A',borderRadius:4}]},
+    options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ฿${c.raw.toLocaleString()}`}}},
+      scales:{x:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>fmt(v)}},
+        y:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}}}}
+  });
+
+  prodCharts.chan = new Chart(document.getElementById('prodChanChart'),{type:'bar',
+    data:{labels:names,datasets:[
+      {label:'Shop Tab',data:data.map(p=>p.shop),backgroundColor:'#4DB8B2',stack:'s'},
+      {label:'Live',data:data.map(p=>p.live),backgroundColor:'#00837A',stack:'s'},
+      {label:'Video',data:data.map(p=>p.video),backgroundColor:'#1B2A4A',stack:'s'},
+      {label:'Product Card',data:data.map(p=>p.pc),backgroundColor:'#72C02C',stack:'s'},
+    ]},
+    options:{indexAxis:'y',responsive:true,plugins:{legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+        tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ฿${c.raw.toLocaleString()}`}}},
+      scales:{x:{stacked:true,grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>fmt(v)}},
+        y:{stacked:true,grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}}}}
+  });
+
+  const prodTbody = document.getElementById('prodTable');
+  prodTbody.innerHTML = '';
+  data.forEach((p,i)=>{
+    const ranks=['r1','r2','r3','rn','rn','rn','rn','rn','rn','rn'];
+    prodTbody.innerHTML += `<tr>
+      <td><span class="rank ${ranks[i]}">${i+1}</span></td>
+      <td>${p.n}</td>
+      <td class="td-teal">฿${p.gmv.toLocaleString()}</td>
+      <td>${p.orders.toLocaleString()}</td>
+      <td>฿${p.shop.toLocaleString()}</td>
+      <td>฿${p.live.toLocaleString()}</td>
+      <td>฿${p.video.toLocaleString()}</td>
+      <td class="td-green">฿${p.pc.toLocaleString()}</td>
+    </tr>`;
+  });
+}
+showProducts('mar', document.querySelector('.msel-btn.active'));
+
+// ═══════════════════ AFFILIATE — EXPANDED ═══════════════════
+
+const affTotalGmv    = MONTHS.map((_,i)=>liveAffGmv[i]+vidGmv[i]);
+const selfSellGmv    = MONTHS.map((_,i)=>(shopGmv[i]||0)-(liveAffGmv[i]+vidGmv[i]));
+const affCreators    = [82, 85, 91, 88, 72];
+const affCreatorsPosted = [118, 122, 134, 128, 104];
+const affVideos      = [1480, 1520, 1680, 1440, 829];
+const affStreams      = liveStreams;
+const affItems       = [7420, 7690, 9840, 8360, 3783];
+const affRefunds     = [148,  142,  197,  210,   76];
+const affAOV         = [512,  518,  524,  510,  508];
+const affCommPct     = [6.4,  6.5,  6.7,  6.8,  6.6];
+const affDailyLiveWS = [13.2, 11.8, 12.4, 11.6,  9.8];
+const affDailyVidWS  = [48.2, 49.0, 54.2, 46.5, 26.8];
+const affSamplesShip = [320,  285,  410,  380,  190];
+const affRefundPct   = affRefunds.map((r,i)=>(r/affItems[i]*100).toFixed(1));
+
+// KPI card: affiliate share
+const totalGmvSum = shopGmv.reduce((a,b)=>a+b,0);
+const affGmvSum   = affTotalGmv.reduce((a,b)=>a+b,0);
+const el_share = document.getElementById('affSharePct');
+if(el_share) el_share.textContent = (affGmvSum/totalGmvSum*100).toFixed(1)+'%';
+
+// ── Revenue Share: Affiliate vs Self-Sell ──
+new Chart(document.getElementById('affShareChart'),{type:'bar',
+  data:{labels:MONTHS,datasets:[
+    {label:'Affiliate GMV', data:affTotalGmv, backgroundColor:'#00837A',stack:'s',borderRadius:[4,4,0,0]},
+    {label:'Self-Sell GMV', data:selfSellGmv, backgroundColor:'#E0F2F1',stack:'s'},
+  ]},
+  options:{responsive:true,plugins:{legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+    tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ฿${c.raw.toLocaleString()}`}}},
+    scales:{x:{stacked:true,grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{stacked:true,grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>fmt(v)}}}}
+});
+
+// ── Affiliate channel mix (Live vs Video) ──
+new Chart(document.getElementById('affMixChart'),{type:'bar',
+  data:{labels:MONTHS,datasets:[
+    {label:'Affiliate Live GMV',  data:liveAffGmv, backgroundColor:'#00837A',stack:'m'},
+    {label:'Affiliate Video GMV', data:vidGmv,     backgroundColor:'#1B2A4A',stack:'m'},
+  ]},
+  options:{responsive:true,plugins:{legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+    tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ฿${c.raw.toLocaleString()}`}}},
+    scales:{x:{stacked:true,grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{stacked:true,grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>fmt(v)}}}}
+});
+
+// ── Total creator GMV ──
+new Chart(document.getElementById('affTotalGmvChart'),{type:'bar',
+  data:{labels:MONTHS,datasets:[
+    {label:'Creator Live GMV',  data:liveAffGmv, backgroundColor:'#00837A',borderRadius:4,stack:'g'},
+    {label:'Creator Video GMV', data:vidGmv,     backgroundColor:'#4DB8B2',borderRadius:4,stack:'g'},
+  ]},
+  options:{responsive:true,plugins:{legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+    tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ฿${c.raw.toLocaleString()}`}}},
+    scales:{x:{stacked:true,grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{stacked:true,grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>fmt(v)}}}}
+});
+
+// ── Daily creators with sales ──
+new Chart(document.getElementById('affCreatorsChart'),{type:'line',
+  data:{labels:MONTHS,datasets:[
+    {label:'Creators with Sales/day', data:affCreators,       borderColor:'#00837A',backgroundColor:'rgba(0,131,122,0.1)',fill:true,tension:0.3,pointRadius:5},
+    {label:'Creators Posted/day',     data:affCreatorsPosted, borderColor:'#4DB8B2',borderDash:[5,3],tension:0.3,pointRadius:5},
+  ]},
+  options:{responsive:true,plugins:{legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+    tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}`}}},
+    scales:{x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}}}}
+});
+
+// ── Videos vs LIVE streams ──
+new Chart(document.getElementById('affContentChart'),{type:'bar',
+  data:{labels:MONTHS,datasets:[
+    {label:'Videos Published', data:affVideos,  backgroundColor:'#1B2A4A',borderRadius:4},
+    {label:'LIVE Streams',     data:affStreams,  backgroundColor:'#4DB8B2',borderRadius:4},
+  ]},
+  options:{responsive:true,plugins:{legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+    tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw.toLocaleString()}`}}},
+    scales:{x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}}}}
+});
+
+// ── AOV & Commission rate dual-axis ──
+new Chart(document.getElementById('affAovCommChart'),{type:'bar',
+  data:{labels:MONTHS,datasets:[
+    {label:'Creator AOV (฿)', data:affAOV,     backgroundColor:'#00837A',borderRadius:4,yAxisID:'y'},
+    {label:'Commission %',    data:affCommPct, backgroundColor:'#FCD34D',borderRadius:4,yAxisID:'y2'},
+  ]},
+  options:{responsive:true,plugins:{legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+    tooltip:{callbacks:{label:c=>c.dataset.yAxisID==='y2'?` Commission: ${c.raw}%`:` AOV: ฿${c.raw}`}}},
+    scales:{
+      x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{grid:{color:'rgba(0,0,0,0.04)'},min:400,ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>'฿'+v}},
+      y2:{position:'right',grid:{display:false},min:0,max:15,ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>v+'%'}}
+    }}
+});
+
+// ── Content-to-sale efficiency ──
+new Chart(document.getElementById('affSalesEffChart'),{type:'line',
+  data:{labels:MONTHS,datasets:[
+    {label:'Daily Videos with Sales', data:affDailyVidWS,  borderColor:'#1B2A4A',backgroundColor:'rgba(27,42,74,0.08)',fill:true,tension:0.3,pointRadius:5},
+    {label:'Daily LIVEs with Sales',  data:affDailyLiveWS, borderColor:'#00837A',borderDash:[5,3],tension:0.3,pointRadius:5},
+  ]},
+  options:{responsive:true,plugins:{legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+    tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}/day`}}},
+    scales:{x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}}}}
+});
+
+// ── Refund rate ──
+new Chart(document.getElementById('affRefundChart'),{type:'bar',
+  data:{labels:MONTHS,datasets:[
+    {label:'Refund Rate %',data:affRefundPct.map(Number),
+     backgroundColor:affRefundPct.map(v=>Number(v)>2.5?'#DC2626':Number(v)>2.0?'#F59E0B':'#4DB8B2'),borderRadius:4}
+  ]},
+  options:{responsive:true,plugins:{legend:{display:false},
+    tooltip:{callbacks:{label:c=>` Refund rate: ${c.raw}%`}}},
+    scales:{x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>v+'%'}}}}
+});
+
+// ── Full MoM metrics scorecard table ──
+(()=>{
+  const tbody = document.getElementById('affMomTable');
+  if(!tbody) return;
+  const rows = [
+    {label:'Creator GMV (฿)',             vals:affTotalGmv,        fmt:v=>'฿'+v.toLocaleString()},
+    {label:'↳  Affiliate Live GMV (฿)',   vals:liveAffGmv,         fmt:v=>'฿'+v.toLocaleString(), indent:true},
+    {label:'↳  Affiliate Video GMV (฿)',  vals:vidGmv,             fmt:v=>'฿'+v.toLocaleString(), indent:true},
+    {label:'Creator AOV (฿)',             vals:affAOV,              fmt:v=>'฿'+v},
+    {label:'Items Sold (creator)',         vals:affItems,            fmt:v=>v.toLocaleString()},
+    {label:'Refunded Items',              vals:affRefunds,          fmt:v=>v.toLocaleString(), flag:true},
+    {label:'Refund Rate %',               vals:affRefundPct.map(Number), fmt:v=>v+'%', flag:true},
+    {label:'Videos Published',            vals:affVideos,           fmt:v=>v.toLocaleString()},
+    {label:'LIVE Streams',                vals:affStreams,           fmt:v=>v.toLocaleString()},
+    {label:'Avg Daily Creators w/ Sales', vals:affCreators,         fmt:v=>v},
+    {label:'Avg Daily Creators Posted',   vals:affCreatorsPosted,   fmt:v=>v},
+    {label:'Avg Daily Videos with Sales', vals:affDailyVidWS,       fmt:v=>v},
+    {label:'Avg Daily LIVEs with Sales',  vals:affDailyLiveWS,      fmt:v=>v},
+    {label:'Est. Commission %',           vals:affCommPct,          fmt:v=>v+'%'},
+    {label:'Samples Shipped',             vals:affSamplesShip,       fmt:v=>v.toLocaleString()},
+  ];
+  rows.forEach(row=>{
+    const last=row.vals[3], prev=row.vals[2];
+    const delta = prev>0?((last-prev)/prev*100).toFixed(1):null;
+    const up = delta!==null?parseFloat(delta)>=0:null;
+    const arrowColor = delta===null?'':row.flag?(up?'#DC2626':'#22c55e'):(up?'#22c55e':'#DC2626');
+    const arrow = delta===null?'—':`<span style="color:${arrowColor}">${up?'▲':'▼'}${Math.abs(delta)}%</span>`;
+    const cells = row.vals.map(v=>`<td>${row.fmt(v)}</td>`).join('');
+    const lstyle = row.indent?'padding-left:22px;color:#6B7280':'font-weight:600;color:var(--navy)';
+    tbody.innerHTML += `<tr><td style="${lstyle}">${row.label}</td>${cells}<td>${arrow}</td></tr>`;
+  });
+})();
+
+// ── Product suggestions: Video ──
+new Chart(document.getElementById('affVideoSkuChart'),{type:'bar',
+  data:{labels:['Bio C Acerola 1500mg','Zinc A Chelate','Vitamin E 400IU','Bio C 1000mg 30s','Bio Calcium+D3'],
+    datasets:[{label:'Apr Video GMV (฿)',data:[414000,198000,142000,168000,124000],backgroundColor:'#1B2A4A',borderRadius:4}]},
+  options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false},
+    tooltip:{callbacks:{label:c=>` Video GMV: ฿${c.raw.toLocaleString()}`}}},
+    scales:{x:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>fmt(v)}},
+      y:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}}}}
+});
+
+// ── Product suggestions: Live ──
+new Chart(document.getElementById('affLiveSkuChart'),{type:'bar',
+  data:{labels:['Bio C 1000mg Daily Imu+','Omega Triple Daily','Bio C 1000mg 30s','Bio Calcium+D3','Zinc A Chelate'],
+    datasets:[{label:'Apr Live GMV (฿)',data:[713000,421000,218000,196000,152000],backgroundColor:'#00837A',borderRadius:4}]},
+  options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false},
+    tooltip:{callbacks:{label:c=>` Live GMV: ฿${c.raw.toLocaleString()}`}}},
+    scales:{x:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>fmt(v)}},
+      y:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}}}}
+});
+
+// ── Affiliate sub-nav scroll ──
+function scrollToAff(id, btn){
+  document.querySelectorAll('#tab-affiliate .msel-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  const el = document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+// Legacy affTable (hidden div, kept for compatibility)
+const affTbody = document.getElementById('affTable');
+if(affTbody){ MONTHS.forEach((m,i)=>{
+  affTbody.innerHTML += `<tr><td>${m}</td><td>฿${liveAffGmv[i].toLocaleString()}</td><td>฿${vidGmv[i].toLocaleString()}</td></tr>`;
+});}
+
+// Legacy affLiveChart / affVidChart (canvas elements removed from HTML, guard against missing)
+['affLiveChart','affVidChart'].forEach(id=>{
+  const el = document.getElementById(id);
+  if(el){ new Chart(el,{type:'bar',data:{labels:MONTHS,datasets:[{data:[0,0,0,0,0]}]},options:{plugins:{legend:{display:false}}}}); }
+});
+
+// ═══════════════════ TAB SWITCHING ═══════════════════
+function showTab(name, el){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.ntab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  el.classList.add('active');
+}
+
+// ═══════════════════ OBJECTIVES TAB ═══════════════════
+
+// ── Scroll helper ──
+function scrollToObj(id, btn){
+  document.querySelectorAll('.msel-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  const el = document.getElementById(id);
+  if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+// ── Campaign data by month ──
+const OBJ_MONTHS = ['Jan','Feb','Mar','Apr','May'];
+
+// GMV by campaign type (฿)
+const gmvBAU     = [2912448, 1887540, 3202154, 1823276, 1274842];
+const gmvPayday  = [1631086, 1113490, 1638978, 1406280,       0];  // May payday not yet complete
+const gmvDD      = [       0, 1228115, 1619620, 1475852, 1978332];
+const gmvCatMid  = [  357000,  702890,  986420,  762140,  491200];  // Category + Mid-Month
+const gmvTotal   = [4900534, 4932035, 7447172, 5467548, 3744374];   // May partial
+
+// Double Digit events (event-level)
+const ddLabels   = ['2.2 (Feb)','3.3 (Mar)','4.4 (Apr)','5.5 (May)'];
+const ddGmv      = [1228115, 1619620, 1475852, 1978332];
+const ddOrders   = [2201, 3235, 2865, 3808];
+const ddAOV      = [558, 501, 515, 520];
+
+// Buyers: new vs returning (estimated)
+const newBuyers  = [3048, 3110, 5280, 4543, 2840];
+const retBuyers  = [4973, 5190, 8420, 6537, 3960];
+const totalCust  = [8021, 8300, 13700, 11080, 6800];  // monthly unique customers
+const totalOrders= [9817, 10260, 17642, 13760, 7750];
+
+// Traffic: Visitors + Live Views
+const visitors   = [166000, 168000, 298000, 222000, 148000];
+const liveViewsM = [2800000, 3400000, 5200000, 4700000, 3800000];
+const vidViewsM  = [8200000, 12400000, 19600000, 37000000, 24000000];
+
+// CR% by campaign type
+const crBAU      = [7.17, 6.82, 8.24, 2.27, 6.10];  // Apr anomaly flagged
+const crPayday   = [9.05, 8.40, 9.12, 8.77,    0];
+const crDD       = [   0, 9.93,11.03, 5.80, 9.94];
+const crCatMid   = [4.20, 5.10, 6.30, 4.80, 4.20];
+
+// AOV & Basket by campaign type
+const aovBAU     = [562, 548, 571, 534, 558];
+const aovPayday  = [533, 541, 551, 545,   0];
+const aovDD      = [  0, 558, 501, 515, 520];
+const aovCatMid  = [498, 512, 524, 508, 495];
+const basketBAU  = [1.18, 1.20, 1.22, 1.19, 1.21];
+const basketDD   = [   0, 1.32, 1.35, 1.28, 1.38];
+
+// Channel Efficiency: GPS (GMV per stream), GPM, channel share
+const gpsMonthly = [678, 752, 842, 961, 1327];
+const gpmMonthly = [520, 610, 730, 682, 890];
+const liveSharePct= [45, 45, 39, 39, 44];
+const vidSharePct = [28, 27, 26, 37, 32];
+const pcSharePct  = [15, 16, 19, 14, 14];
+const shopSharePct= [12, 12, 16, 10, 10];
+
+// New buyer acquisition SKUs (Apr data, orders/channel)
+const skuNames   = ['Bio C 1000mg Daily Imu+','Omega Triple Daily','Bio C Acerola Plus 1500mg','Bio Calcium+D3','Zinc A Chelate','Bio C 1000mg (30s)','Vitamin E 400IU'];
+const skuOrders  = [1841, 920, 1106, 738, 612, 580, 430];
+const skuAvgPrice= [720, 469, 280, 399, 449, 380, 320];
+
+// ── CHART: GMV by Campaign Type (stacked bar) ──
+new Chart(document.getElementById('gmvByCampaignChart'),{
+  type:'bar',
+  data:{
+    labels: OBJ_MONTHS,
+    datasets:[
+      {label:'BAU',       data:gmvBAU,    backgroundColor:'#00837A', stack:'g'},
+      {label:'Double Digit', data:gmvDD,  backgroundColor:'#1B2A4A', stack:'g'},
+      {label:'Payday',    data:gmvPayday, backgroundColor:'#4DB8B2', stack:'g'},
+      {label:'Category/Mid',data:gmvCatMid,backgroundColor:'#6B7280',stack:'g'},
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ฿${c.raw.toLocaleString()}`}}
+    },
+    scales:{
+      x:{stacked:true, grid:{display:false}, ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{stacked:true, grid:{color:'rgba(0,0,0,0.04)'}, ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>fmt(v)}}
+    }
+  }
+});
+
+// ── CHART: Double Digit trend ──
+new Chart(document.getElementById('ddGmvChart'),{
+  type:'bar',
+  data:{
+    labels: ddLabels,
+    datasets:[
+      {label:'DD GMV',data:ddGmv,backgroundColor:['#4DB8B2','#00837A','#1B2A4A','#00837A'],borderRadius:4},
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{display:false},
+      tooltip:{callbacks:{label:c=>` ฿${c.raw.toLocaleString()} | AOV ฿${ddAOV[c.dataIndex]}`}}
+    },
+    scales:{
+      x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>fmt(v)}}
+    }
+  }
+});
+
+// ── TABLE: GMV campaign type breakdown ──
+(()=>{
+  const tbody = document.getElementById('gmvCampaignTable');
+  const types = ['BAU','Double Digit','Payday','Cat/Mid-Month','Total'];
+  const rows  = [gmvBAU, gmvDD, gmvPayday, gmvCatMid, gmvTotal];
+  rows.forEach((r,i)=>{
+    const isTotal = i===4;
+    const prev = r.map((v,j)=>j>0?r[j-1]:null);
+    let cells = `<td${isTotal?' style="font-weight:700"':''}>${types[i]}</td>`;
+    r.forEach((v,j)=>{
+      const delta = j>0&&prev[j]>0 ? ((v-prev[j])/prev[j]*100).toFixed(1) : null;
+      const arrow = delta===null?'':parseFloat(delta)>=0
+        ?`<span style="color:#22c55e;font-size:10px"> ▲${delta}%</span>`
+        :`<span style="color:#DC2626;font-size:10px"> ▼${Math.abs(delta)}%</span>`;
+      cells += `<td class="${isTotal?'td-teal':''}">฿${v>0?v.toLocaleString():'-'}${arrow}</td>`;
+    });
+    tbody.innerHTML += `<tr>${cells}</tr>`;
+  });
+})();
+
+// ── CHART: Buyer Growth (new vs returning stacked) ──
+new Chart(document.getElementById('buyerGrowthChart'),{
+  type:'bar',
+  data:{
+    labels:OBJ_MONTHS,
+    datasets:[
+      {label:'New Buyers',    data:newBuyers, backgroundColor:'#00837A', stack:'b', borderRadius:[4,4,0,0]},
+      {label:'Returning',     data:retBuyers, backgroundColor:'#4DB8B2', stack:'b'},
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw.toLocaleString()}`}}
+    },
+    scales:{
+      x:{stacked:true,grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{stacked:true,grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}}
+    }
+  }
+});
+
+// ── CHART: Orders vs Customers dual bar ──
+new Chart(document.getElementById('custOrdersChart'),{
+  type:'bar',
+  data:{
+    labels:OBJ_MONTHS,
+    datasets:[
+      {label:'Total Orders',   data:totalOrders, backgroundColor:'#1B2A4A', borderRadius:4},
+      {label:'Unique Customers',data:totalCust,  backgroundColor:'#4DB8B2', borderRadius:4},
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw.toLocaleString()}`}}},
+    scales:{
+      x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}}
+    }
+  }
+});
+
+// ── TABLE: Buyer metrics ──
+(()=>{
+  const tbody = document.getElementById('buyerTable');
+  OBJ_MONTHS.forEach((m,i)=>{
+    const newPct = ((newBuyers[i]/totalCust[i])*100).toFixed(0);
+    const ordPerCust = (totalOrders[i]/totalCust[i]).toFixed(2);
+    const prevTotal = i>0?totalCust[i-1]:null;
+    const custDelta = prevTotal ? ((totalCust[i]-prevTotal)/prevTotal*100).toFixed(1) : '—';
+    const arrow = prevTotal ? (parseFloat(custDelta)>=0
+      ?`<span style="color:#22c55e">▲</span>`
+      :`<span style="color:#DC2626">▼</span>`):'';
+    tbody.innerHTML += `<tr>
+      <td>${m} 2026</td>
+      <td class="td-teal">${totalCust[i].toLocaleString()}</td>
+      <td>${newBuyers[i].toLocaleString()} <small style="color:#6B7280">(${newPct}%)</small></td>
+      <td>${retBuyers[i].toLocaleString()}</td>
+      <td>${totalOrders[i].toLocaleString()}</td>
+      <td>${ordPerCust}</td>
+      <td>${arrow}${prevTotal?custDelta+'%':'—'}</td>
+    </tr>`;
+  });
+})();
+
+// ── CHART: Traffic — Visitors + Live Views ──
+new Chart(document.getElementById('trafficChart'),{
+  type:'bar',
+  data:{
+    labels:OBJ_MONTHS,
+    datasets:[
+      {label:'Shop Visitors', data:visitors,    backgroundColor:'#00837A', borderRadius:4},
+      {label:'Live Views (÷10)', data:liveViewsM.map(v=>Math.round(v/10)), backgroundColor:'#4DB8B2', borderRadius:4},
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      tooltip:{callbacks:{label:c=>{
+        if(c.datasetIndex===1) return ` Live Views: ${(c.raw*10).toLocaleString()}`;
+        return ` Visitors: ${c.raw.toLocaleString()}`;
+      }}}
+    },
+    scales:{
+      x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>fmtN(v)}}
+    }
+  }
+});
+
+// ── CHART: Traffic Quality — CR% by campaign type ──
+new Chart(document.getElementById('trafficQualityChart'),{
+  type:'line',
+  data:{
+    labels:OBJ_MONTHS,
+    datasets:[
+      {label:'BAU CR%',    data:crBAU,    borderColor:'#00837A',backgroundColor:'rgba(0,131,122,0.08)',tension:0.3,fill:true,pointRadius:4},
+      {label:'Payday CR%', data:crPayday, borderColor:'#4DB8B2',backgroundColor:'transparent',tension:0.3,borderDash:[5,3],pointRadius:4},
+      {label:'DD CR%',     data:crDD,     borderColor:'#1B2A4A',backgroundColor:'transparent',tension:0.3,borderDash:[2,2],pointRadius:4},
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw>0?c.raw+'%':'—'}`}}
+    },
+    scales:{
+      x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>v+'%'}}
+    }
+  }
+});
+
+// ── CHART: AOV by campaign type ──
+new Chart(document.getElementById('aovChart'),{
+  type:'bar',
+  data:{
+    labels:OBJ_MONTHS,
+    datasets:[
+      {label:'BAU AOV',    data:aovBAU,    backgroundColor:'#00837A', borderRadius:4},
+      {label:'Payday AOV', data:aovPayday, backgroundColor:'#4DB8B2', borderRadius:4},
+      {label:'DD AOV',     data:aovDD,     backgroundColor:'#1B2A4A', borderRadius:4},
+      {label:'Cat/Mid AOV',data:aovCatMid, backgroundColor:'#6B7280', borderRadius:4},
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ฿${c.raw>0?c.raw:'-'}`}}
+    },
+    scales:{
+      x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{grid:{color:'rgba(0,0,0,0.04)'},min:400,ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>'฿'+v}}
+    }
+  }
+});
+
+// ── CHART: Items per order (basket) ──
+new Chart(document.getElementById('basketChart'),{
+  type:'bar',
+  data:{
+    labels:OBJ_MONTHS,
+    datasets:[
+      {label:'BAU Basket',data:basketBAU,backgroundColor:'#00837A',borderRadius:4},
+      {label:'DD Basket', data:basketDD, backgroundColor:'#1B2A4A',borderRadius:4},
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw>0?c.raw.toFixed(2)+' items':'-'}`}}
+    },
+    scales:{
+      x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{grid:{color:'rgba(0,0,0,0.04)'},min:1,max:1.6,ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>v.toFixed(2)}}
+    }
+  }
+});
+
+// ── TABLE: Basket / AOV summary ──
+(()=>{
+  const tbody = document.getElementById('basketTable');
+  OBJ_MONTHS.forEach((m,i)=>{
+    const prevAOV = i>0?aovBAU[i-1]:null;
+    const aovDelta = prevAOV ? ((aovBAU[i]-prevAOV)/prevAOV*100).toFixed(1) : '—';
+    const aovArrow = prevAOV?(parseFloat(aovDelta)>=0?'<span style="color:#22c55e">▲</span>':'<span style="color:#DC2626">▼</span>'):'';
+    tbody.innerHTML += `<tr>
+      <td>${m} 2026</td>
+      <td class="td-teal">฿${aovBAU[i]}</td>
+      <td>${aovPayday[i]>0?'฿'+aovPayday[i]:'—'}</td>
+      <td>${aovDD[i]>0?'฿'+aovDD[i]:'—'}</td>
+      <td>${basketBAU[i].toFixed(2)}</td>
+      <td>${basketDD[i]>0?basketDD[i].toFixed(2):'—'}</td>
+      <td>${crBAU[i]}%</td>
+      <td>${aovArrow}${prevAOV?aovDelta+'%':'—'}</td>
+    </tr>`;
+  });
+})();
+
+// ── CHART: CR% by campaign type (line) ──
+new Chart(document.getElementById('crByCampaignChart'),{
+  type:'line',
+  data:{
+    labels:OBJ_MONTHS,
+    datasets:[
+      {label:'BAU',   data:crBAU,    borderColor:'#00837A',backgroundColor:'rgba(0,131,122,0.1)',tension:0.3,fill:true,pointRadius:5},
+      {label:'DD',    data:crDD,     borderColor:'#1B2A4A',backgroundColor:'transparent',tension:0.3,borderDash:[5,3],pointRadius:5},
+      {label:'Payday',data:crPayday, borderColor:'#4DB8B2',backgroundColor:'transparent',tension:0.3,borderDash:[2,2],pointRadius:5},
+      {label:'Cat/Mid',data:crCatMid,borderColor:'#6B7280',backgroundColor:'transparent',tension:0.3,borderDash:[3,3],pointRadius:4},
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw>0?c.raw+'%':'—'}`}}
+    },
+    scales:{
+      x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>v+'%'}}
+    }
+  }
+});
+
+// ── CHART: GPS (GMV per Live stream) monthly ──
+new Chart(document.getElementById('gpsChart'),{
+  type:'bar',
+  data:{
+    labels:OBJ_MONTHS,
+    datasets:[{
+      label:'GMV per Stream (฿)',
+      data:gpsMonthly,
+      backgroundColor:['#4DB8B2','#4DB8B2','#00837A','#1B2A4A','#00837A'],
+      borderRadius:4
+    }]
+  },
+  options:{
+    responsive:true,
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>` ฿${c.raw.toLocaleString()}/stream`}}},
+    scales:{
+      x:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>'฿'+v}}
+    }
+  }
+});
+
+// ── CHART: Channel share % (stacked bar) ──
+new Chart(document.getElementById('chanShareChart'),{
+  type:'bar',
+  data:{
+    labels:OBJ_MONTHS,
+    datasets:[
+      {label:'Live',         data:liveSharePct, backgroundColor:'#00837A', stack:'s'},
+      {label:'Video',        data:vidSharePct,  backgroundColor:'#1B2A4A', stack:'s'},
+      {label:'Product Card', data:pcSharePct,   backgroundColor:'#4DB8B2', stack:'s'},
+      {label:'Shop Tab',     data:shopSharePct, backgroundColor:'#6B7280', stack:'s'},
+    ]
+  },
+  options:{
+    responsive:true,
+    plugins:{
+      legend:{labels:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      tooltip:{callbacks:{label:c=>` ${c.dataset.label}: ${c.raw}%`}}
+    },
+    scales:{
+      x:{stacked:true,grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{stacked:true,grid:{color:'rgba(0,0,0,0.04)'},max:100,ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>v+'%'}}
+    }
+  }
+});
+
+// ── TABLE: Channel efficiency scorecard ──
+(()=>{
+  const tbody = document.getElementById('efficiencyTable');
+  OBJ_MONTHS.forEach((m,i)=>{
+    const prevGps = i>0?gpsMonthly[i-1]:null;
+    const gpsDelta = prevGps ? ((gpsMonthly[i]-prevGps)/prevGps*100).toFixed(1) : '—';
+    const arrow = prevGps?(parseFloat(gpsDelta)>=0?'<span style="color:#22c55e">▲</span>':'<span style="color:#DC2626">▼</span>'):'';
+    const roas = (gmvTotal[i] / (gmvTotal[i]*0.18)).toFixed(1);  // estimated 18% paid spend ratio
+    tbody.innerHTML += `<tr>
+      <td>${m} 2026</td>
+      <td class="td-teal">฿${gpsMonthly[i]}</td>
+      <td>${arrow}${prevGps?gpsDelta+'%':'—'}</td>
+      <td>฿${gpmMonthly[i]}</td>
+      <td>${liveSharePct[i]}% / ${vidSharePct[i]}% / ${pcSharePct[i]}%</td>
+      <td>${roas}x <small style="color:#6B7280">(est.)</small></td>
+    </tr>`;
+  });
+})();
+
+// ── CHART: New Buyer SKU acquisition (horizontal bar) ──
+new Chart(document.getElementById('newBuyerSkuChart'),{
+  type:'bar',
+  data:{
+    labels:skuNames.map(n=>n.length>22?n.slice(0,22)+'…':n),
+    datasets:[
+      {label:'Orders (Apr)',  data:skuOrders,   backgroundColor:'#00837A', borderRadius:3},
+    ]
+  },
+  options:{
+    indexAxis:'y',
+    responsive:true,
+    plugins:{
+      legend:{display:false},
+      tooltip:{callbacks:{label:c=>` ${c.raw} orders | Avg ฿${skuAvgPrice[c.dataIndex]}`}}
+    },
+    scales:{
+      x:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}},
+      y:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}}
+    }
+  }
+});
+
+</script>
+</body>
+</html>

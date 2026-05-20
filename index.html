@@ -433,6 +433,7 @@ tbody td:first-child{padding-left:22px;font-weight:600;}
     <button class="msel-btn" onclick="scrollToAff('aff-mom',this)">2 · MoM Performance</button>
     <button class="msel-btn" onclick="scrollToAff('aff-insight',this)">3 · Highlights & Actions</button>
     <button class="msel-btn" onclick="scrollToAff('aff-skus',this)">4 · Product Suggestions</button>
+    <button class="msel-btn" onclick="scrollToAff('aff-comm',this)">5 · Commission Design</button>
   </div>
 
   <!-- ── 1. REVENUE SHARE ── -->
@@ -584,21 +585,21 @@ tbody td:first-child{padding-left:22px;font-weight:600;}
 
   <!-- ── 4. PRODUCT SUGGESTIONS ── -->
   <div id="aff-skus" style="scroll-margin-top:80px;margin-top:32px;">
-    <div class="spill"><span class="pill">4 · Product Suggestions by Affiliate Channel</span><span class="pill-sub">Based on Apr–May conversion data + content fit</span></div>
+    <div class="spill"><span class="pill">4 · Product Suggestions by Affiliate Channel</span><span class="pill-sub">May 2026 · Active products only · Ranked by channel GMV</span></div>
 
     <div class="g2e">
       <!-- Video affiliate -->
       <div class="cc">
         <div class="cc-title">🎬 Best Products for Affiliate Video</div>
-        <div class="cc-sub" style="margin-bottom:12px;">Ranked by video GMV share + view-to-order fit. Products with strong visual storytelling potential.</div>
+        <div class="cc-sub" style="margin-bottom:12px;">Active SKUs only · Ranked by Video-attributed GMV · May 2026</div>
         <canvas id="affVideoSkuChart" height="220"></canvas>
         <div style="margin-top:14px;font-size:12px;line-height:1.8;">
           <div style="display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:start;">
-            <span style="color:var(--teal);font-weight:700;">Bio C Acerola Plus 1500mg</span><span style="color:#6B7280;">Bright colour, tangible benefit (vitamin C glow) — hooks in first 3s</span><span style="color:var(--teal);font-weight:700;">฿280</span>
-            <span style="color:var(--teal);font-weight:700;">Zinc A Chelate</span><span style="color:#6B7280;">Immunity angle + skincare crossover — broad Gen Z / millennial appeal</span><span style="color:var(--teal);font-weight:700;">฿449</span>
-            <span style="color:var(--teal);font-weight:700;">Vitamin E 400IU</span><span style="color:#6B7280;">Beauty supplement framing — high video completion rate potential</span><span style="color:var(--teal);font-weight:700;">฿320</span>
-            <span style="color:var(--teal);font-weight:700;">Bio C 1000mg 30s</span><span style="color:#6B7280;">Affordable entry point — high volume, good for intro/trial content</span><span style="color:var(--teal);font-weight:700;">฿380</span>
-            <span style="color:var(--teal);font-weight:700;">Bio Calcium+D3</span><span style="color:#6B7280;">Education play — bone health story resonates with 30–45 audience</span><span style="color:var(--teal);font-weight:700;">฿399</span>
+            <span style="color:var(--teal);font-weight:700;">Bio C 1000mg Imu+ (150s)</span><span style="color:#6B7280;">Top video GMV driver — immune benefit resonates widely; anchor for all content types</span><span style="color:var(--teal);font-weight:700;">~฿580</span>
+            <span style="color:var(--teal);font-weight:700;">Bio Magnesium Advance+D3</span><span style="color:#6B7280;">Sleep & muscle recovery angle — high items sold (388), strong repeat-purchase signal</span><span style="color:var(--teal);font-weight:700;">~฿300</span>
+            <span style="color:var(--teal);font-weight:700;">Bio C Acerola Plus 1500mg</span><span style="color:#6B7280;">Bright packaging, vitamin C glow hook — highest items sold (437) in video channel</span><span style="color:var(--teal);font-weight:700;">~฿280</span>
+            <span style="color:var(--teal);font-weight:700;">Omega Triple Daily</span><span style="color:#6B7280;">Heart/brain health education play — strong mid-funnel converter at premium price</span><span style="color:var(--teal);font-weight:700;">~฿780</span>
+            <span style="color:var(--teal);font-weight:700;">Biotin H+</span><span style="color:#6B7280;">Hair & beauty framing — high engagement with 25–35 female audience in beauty content</span><span style="color:var(--teal);font-weight:700;">~฿560</span>
           </div>
           <div style="margin-top:10px;padding:10px;background:var(--grey-bg);border-radius:6px;color:#6B7280;">
             <strong style="color:var(--navy);">Brief rule:</strong> Lead with product benefit in first 3 seconds, follow with offer/mechanic. Target GPM ≥฿300. Videos under ฿100 GPM to be removed from collab plan.
@@ -609,18 +610,18 @@ tbody td:first-child{padding-left:22px;font-weight:600;}
       <!-- Live affiliate -->
       <div class="cc">
         <div class="cc-title">📡 Best Products for Affiliate Live</div>
-        <div class="cc-sub" style="margin-bottom:12px;">Ranked by live GMV contribution + bundle/flash-sale suitability for in-session conversion.</div>
+        <div class="cc-sub" style="margin-bottom:12px;">Active SKUs only · Ranked by LIVE-attributed GMV · May 2026</div>
         <canvas id="affLiveSkuChart" height="220"></canvas>
         <div style="margin-top:14px;font-size:12px;line-height:1.8;">
           <div style="display:grid;grid-template-columns:auto 1fr auto;gap:4px 12px;align-items:start;">
-            <span style="color:var(--navy);font-weight:700;">Bio C 1000mg Daily Imu+</span><span style="color:#6B7280;">Top live GMV driver (47% live share in Apr) — anchor SKU for every live session</span><span style="color:var(--navy);font-weight:700;">฿720</span>
-            <span style="color:var(--navy);font-weight:700;">Omega Triple Daily</span><span style="color:#6B7280;">43% live GMV share — strong bundle candidate with Bio C. Demo-friendly.</span><span style="color:var(--navy);font-weight:700;">฿469</span>
-            <span style="color:var(--navy);font-weight:700;">Bio C 1000mg 30s</span><span style="color:#6B7280;">Low-barrier entry price — use as flash deal to trigger first-time buyers in-session</span><span style="color:var(--navy);font-weight:700;">฿380</span>
-            <span style="color:var(--navy);font-weight:700;">Bio Calcium+D3</span><span style="color:#6B7280;">Demo-friendly (tablet size, packaging) — works well in bundle flash deals</span><span style="color:var(--navy);font-weight:700;">฿399</span>
-            <span style="color:var(--navy);font-weight:700;">Zinc A Chelate</span><span style="color:#6B7280;">21% product card share — currently under-used in live. High upsell potential.</span><span style="color:var(--navy);font-weight:700;">฿449</span>
+            <span style="color:var(--navy);font-weight:700;">Bio C 1000mg Imu+ (150s)</span><span style="color:#6B7280;">Dominant live anchor — ฿479K GMV, 858 items sold. Must-pin for every affiliate session</span><span style="color:var(--navy);font-weight:700;">~฿580</span>
+            <span style="color:var(--navy);font-weight:700;">Omega Triple Daily</span><span style="color:#6B7280;">Strong bundle candidate with Bio C — demo-friendly, premium price lifts AOV</span><span style="color:var(--navy);font-weight:700;">~฿780</span>
+            <span style="color:var(--navy);font-weight:700;">Astaxanthin 6mg Plus</span><span style="color:#6B7280;">Anti-aging story performs well in live — 221 items sold, high conversion in-session</span><span style="color:var(--navy);font-weight:700;">~฿400</span>
+            <span style="color:var(--navy);font-weight:700;">Bio Magnesium Advance+D3</span><span style="color:#6B7280;">Sleep & wellness angle — 277 items sold, accessible price drives volume in flash deals</span><span style="color:var(--navy);font-weight:700;">~฿300</span>
+            <span style="color:var(--navy);font-weight:700;">Marine Collagen Absolute</span><span style="color:#6B7280;">Beauty collagen story — high AOV (~฿710), ideal upsell after Biotin or Astaxanthin demo</span><span style="color:var(--navy);font-weight:700;">~฿710</span>
           </div>
           <div style="margin-top:10px;padding:10px;background:var(--grey-bg);border-radius:6px;color:#6B7280;">
-            <strong style="color:var(--navy);">Live mechanic rule:</strong> Anchor with Bio C 1000mg → upsell to Omega bundle → close with Bio C 30s flash deal. Exclusive in-session pricing drives CTOR. Target CTOR ≥3.0%.
+            <strong style="color:var(--navy);">Live mechanic rule:</strong> Anchor with Bio C 1000mg Imu+ → upsell to Omega Triple bundle → beauty close with Astaxanthin or Marine Collagen. Exclusive in-session pricing drives CTOR. Target CTOR ≥3.0%.
           </div>
         </div>
       </div>
@@ -635,14 +636,77 @@ tbody td:first-child{padding-left:22px;font-weight:600;}
           <th>Recommended Mechanic</th><th>Target GMV / Creator</th><th>Priority</th>
         </tr></thead>
         <tbody>
-          <tr><td><strong>Bio C 1000mg Daily Imu+</strong></td><td>฿720</td><td>Live (primary)</td><td>Active — target collab</td><td>Bundle 2 for ฿1,260 · in-session exclusive</td><td>฿8,000+</td><td><span style="color:var(--teal);font-weight:700;">⭐⭐⭐ Anchor</span></td></tr>
-          <tr style="background:var(--grey-bg);"><td><strong>Omega Triple Daily</strong></td><td>฿469</td><td>Live + Video</td><td>Active — open collab</td><td>Bundle with Bio C · trial 30-day ฿419</td><td>฿5,000+</td><td><span style="color:var(--teal);font-weight:700;">⭐⭐⭐ Anchor</span></td></tr>
-          <tr><td><strong>Bio C Acerola Plus 1500mg</strong></td><td>฿280</td><td>Video (primary)</td><td>Active — open collab</td><td>Intro price ฿249 · 3 for ฿750</td><td>฿3,000+</td><td><span style="color:var(--teal);">⭐⭐⭐ Volume</span></td></tr>
-          <tr style="background:var(--grey-bg);"><td><strong>Zinc A Chelate</strong></td><td>฿449</td><td>Video + PC</td><td>⚠️ Under-indexed — push to target collab</td><td>Immunity angle · beauty crossover brief</td><td>฿2,500+</td><td><span style="color:#f59e0b;">⭐⭐ Growth</span></td></tr>
-          <tr><td><strong>Vitamin E 400IU</strong></td><td>฿320</td><td>Video</td><td>⚠️ Under-indexed — push to target collab</td><td>Beauty supplement framing · 2-pack ฿550</td><td>฿2,000+</td><td><span style="color:#f59e0b;">⭐⭐ Growth</span></td></tr>
-          <tr style="background:var(--grey-bg);"><td><strong>Bio Calcium+D3</strong></td><td>฿399</td><td>Live + Video</td><td>Active — expand to more creators</td><td>Buy 2 ฿699 + GWP · education content angle</td><td>฿2,500+</td><td><span style="color:#f59e0b;">⭐⭐ Growth</span></td></tr>
+          <tr><td><strong>Bio C 1000mg Imu+ (150s)</strong></td><td>~฿580</td><td>Live (primary)</td><td>Active — target collab</td><td>Bundle 2 for ฿1,100 · in-session exclusive price</td><td>฿8,000+</td><td><span style="color:var(--teal);font-weight:700;">⭐⭐⭐ Anchor</span></td></tr>
+          <tr style="background:var(--grey-bg);"><td><strong>Omega Triple Daily</strong></td><td>~฿780</td><td>Live + Video</td><td>Active — open collab</td><td>Bundle with Bio C · heart+brain health brief</td><td>฿5,000+</td><td><span style="color:var(--teal);font-weight:700;">⭐⭐⭐ Anchor</span></td></tr>
+          <tr><td><strong>Bio Magnesium Advance+D3</strong></td><td>~฿300</td><td>Video + Live</td><td>Active — open collab</td><td>Sleep & recovery angle · 2-pack ฿550 flash deal</td><td>฿4,000+</td><td><span style="color:var(--teal);">⭐⭐⭐ Volume</span></td></tr>
+          <tr style="background:var(--grey-bg);"><td><strong>Bio C Acerola Plus 1500mg</strong></td><td>~฿280</td><td>Video (primary)</td><td>Active — open collab</td><td>Vitamin C glow hook · 3-for-฿750 intro offer</td><td>฿3,000+</td><td><span style="color:var(--teal);">⭐⭐⭐ Volume</span></td></tr>
+          <tr><td><strong>Astaxanthin 6mg Plus</strong></td><td>~฿400</td><td>Live + Video</td><td>Active — expand to more creators</td><td>Anti-aging story · bundle with Marine Collagen</td><td>฿2,500+</td><td><span style="color:#f59e0b;">⭐⭐ Growth</span></td></tr>
+          <tr style="background:var(--grey-bg);"><td><strong>Marine Collagen Absolute</strong></td><td>~฿710</td><td>Live (primary)</td><td>Active — beauty creator brief needed</td><td>Collagen beauty upsell · pair with Astaxanthin</td><td>฿2,500+</td><td><span style="color:#f59e0b;">⭐⭐ Growth</span></td></tr>
+          <tr><td><strong>Biotin H+</strong></td><td>~฿560</td><td>Video + Live</td><td>Active — open collab</td><td>Hair & nail beauty angle · 2-pack ฿999 in-session</td><td>฿2,000+</td><td><span style="color:#f59e0b;">⭐⭐ Growth</span></td></tr>
         </tbody>
       </table>
+    </div>
+  </div>
+
+  <!-- ── 5. COMMISSION DESIGN ── -->
+  <div id="aff-comm" style="scroll-margin-top:80px;margin-top:32px;">
+    <div class="spill"><span class="pill">5 · Commission Design</span><span class="pill-sub">Active SKUs · May 2026 actuals · Max 12% · Beauty-focused</span></div>
+
+    <!-- Design rationale KPI cards -->
+    <div class="kgrid kg4" style="margin-bottom:18px;">
+      <div class="kcard"><div class="klab">Increase Comm% ▲</div><div class="kval" style="color:#16A34A;">69 SKUs</div><div class="ksub">Revenue-justified uplift from current rate</div></div>
+      <div class="kcard" style="border-top:3px solid #7C3AED;"><div class="klab">Beauty Core → 12%</div><div class="kval" style="color:#7C3AED;">9 SKUs</div><div class="ksub">Astaxanthin · Marine Collagen · Biotin H+</div></div>
+      <div class="kcard navy"><div class="klab">Maintain Same =</div><div class="kval">21 SKUs</div><div class="ksub">Already at right rate vs. revenue contribution</div></div>
+      <div class="kcard"><div class="klab">Decrease Comm% ▼</div><div class="kval" style="color:#DC2626;">4 SKUs</div><div class="ksub">Over-priced vs. low GMV — trim to protect ROI</div></div>
+    </div>
+
+    <!-- Legend -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px;font-size:11px;">
+      <span style="padding:3px 10px;border-radius:20px;background:#00837A;color:#fff;font-weight:700;">⭐ Anchor 12%</span>
+      <span style="padding:3px 10px;border-radius:20px;background:#7C3AED;color:#fff;font-weight:700;">⭐ Beauty Core 12%</span>
+      <span style="padding:3px 10px;border-radius:20px;background:#A855F7;color:#fff;font-weight:700;">Beauty 10%</span>
+      <span style="padding:3px 10px;border-radius:20px;background:#1B2A4A;color:#fff;font-weight:700;">High 10%</span>
+      <span style="padding:3px 10px;border-radius:20px;background:#0369A1;color:#fff;font-weight:700;">Growth 9%</span>
+      <span style="padding:3px 10px;border-radius:20px;background:#6B7280;color:#fff;font-weight:700;">Standard 7%</span>
+      <span style="padding:3px 10px;border-radius:20px;background:#D97706;color:#fff;font-weight:700;">Watch 6%</span>
+      <span style="padding:3px 10px;border-radius:20px;background:#DC2626;color:#fff;font-weight:700;">Trim 5%</span>
+    </div>
+
+    <!-- Search bar -->
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:10px;">
+      <div style="position:relative;flex:1;max-width:360px;">
+        <input id="commSearch" type="text" placeholder="🔍  Search product name…"
+          oninput="renderCommTable()"
+          style="width:100%;padding:7px 12px 7px 12px;border:1.5px solid #D1D5DB;border-radius:8px;font-family:Montserrat,sans-serif;font-size:12px;outline:none;box-sizing:border-box;">
+      </div>
+      <button id="commClearSearch" onclick="clearCommSearch()" style="display:none;padding:6px 12px;border:1.5px solid #D1D5DB;border-radius:8px;font-family:Montserrat,sans-serif;font-size:11px;background:#fff;cursor:pointer;color:#6B7280;">✕ Clear</button>
+    </div>
+
+    <!-- Filter bar -->
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px;align-items:center;">
+      <button onclick="filterComm('all',this)" class="msel-btn active" style="font-size:11px;padding:4px 12px;">All</button>
+      <button onclick="filterComm('beauty',this)" class="msel-btn" style="font-size:11px;padding:4px 12px;">Beauty Only</button>
+      <button onclick="filterComm('live',this)" class="msel-btn" style="font-size:11px;padding:4px 12px;">Live-primary</button>
+      <button onclick="filterComm('video',this)" class="msel-btn" style="font-size:11px;padding:4px 12px;">Video-primary</button>
+      <button onclick="filterComm('trim',this)" class="msel-btn" style="font-size:11px;padding:4px 12px;">Trim (≤6%)</button>
+      <span style="width:1px;height:20px;background:#E5E7EB;margin:0 4px;"></span>
+      <button id="commSelBtn" onclick="filterComm('selected',this)" class="msel-btn" style="font-size:11px;padding:4px 12px;display:none;">📌 Selected (<span id="commSelCount">0</span>)</button>
+      <button id="commClearSelBtn" onclick="clearCommSel()" style="display:none;padding:4px 12px;border:1.5px solid #E5E7EB;border-radius:20px;font-size:11px;background:#fff;cursor:pointer;color:#DC2626;">✕ Clear selection</button>
+    </div>
+    <div style="font-size:11px;color:#9CA3AF;margin-bottom:10px;">💡 Click any row to pin it to your selection</div>
+
+    <div class="tcard">
+      <table id="commTable">
+        <thead><tr>
+          <th>#</th><th>Product</th><th>~Price</th><th>May GMV</th>
+          <th>Live%</th><th>Video%</th><th>Channel</th>
+          <th>Current</th><th>Recommended</th><th>Change</th><th>Tier</th>
+        </tr></thead>
+        <tbody id="commTbody"></tbody>
+      </table>
+    </div>
+    <div style="margin-top:10px;padding:12px;background:var(--grey-bg);border-radius:6px;font-size:12px;color:#6B7280;">
+      <strong style="color:var(--navy);">Design logic:</strong> Beauty category (Astaxanthin · Marine Collagen · Biotin H+) capped at 12% to drive content creation. Anchor Bio C Imu+ at 12% — every ฿1 extra commission converts to ~฿8 GMV uplift at current conversion. Products with May GMV &lt;฿15K trimmed to 5–6% to protect blended ROI. Live-primary SKUs weighted higher to incentivise stream frequency. Video-primary SKUs supported where items sold justify CPM economics.
     </div>
   </div>
 
@@ -1534,20 +1598,20 @@ new Chart(document.getElementById('affRefundChart'),{type:'bar',
   });
 })();
 
-// ── Product suggestions: Video ──
+// ── Product suggestions: Video (Active SKUs · May 2026) ──
 new Chart(document.getElementById('affVideoSkuChart'),{type:'bar',
-  data:{labels:['Bio C Acerola 1500mg','Zinc A Chelate','Vitamin E 400IU','Bio C 1000mg 30s','Bio Calcium+D3'],
-    datasets:[{label:'Apr Video GMV (฿)',data:[414000,198000,142000,168000,124000],backgroundColor:'#1B2A4A',borderRadius:4}]},
+  data:{labels:['Bio C 1000mg Imu+ (150s)','Bio Magnesium Advance+D3','Bio C Acerola Plus 1500mg','Omega Triple Daily','Biotin H+'],
+    datasets:[{label:'May Video GMV (฿)',data:[256213,125148,124864,81693,65729],backgroundColor:'#1B2A4A',borderRadius:4}]},
   options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false},
     tooltip:{callbacks:{label:c=>` Video GMV: ฿${c.raw.toLocaleString()}`}}},
     scales:{x:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>fmt(v)}},
       y:{grid:{display:false},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280'}}}}
 });
 
-// ── Product suggestions: Live ──
+// ── Product suggestions: Live (Active SKUs · May 2026) ──
 new Chart(document.getElementById('affLiveSkuChart'),{type:'bar',
-  data:{labels:['Bio C 1000mg Daily Imu+','Omega Triple Daily','Bio C 1000mg 30s','Bio Calcium+D3','Zinc A Chelate'],
-    datasets:[{label:'Apr Live GMV (฿)',data:[713000,421000,218000,196000,152000],backgroundColor:'#00837A',borderRadius:4}]},
+  data:{labels:['Bio C 1000mg Imu+ (150s)','Omega Triple Daily','Astaxanthin 6mg Plus','Bio Magnesium Advance+D3','Marine Collagen Absolute'],
+    datasets:[{label:'May Live GMV (฿)',data:[478622,104524,86106,75665,61664],backgroundColor:'#00837A',borderRadius:4}]},
   options:{indexAxis:'y',responsive:true,plugins:{legend:{display:false},
     tooltip:{callbacks:{label:c=>` Live GMV: ฿${c.raw.toLocaleString()}`}}},
     scales:{x:{grid:{color:'rgba(0,0,0,0.04)'},ticks:{font:{family:'Montserrat',size:10},color:'#6B7280',callback:v=>fmt(v)}},
@@ -1561,6 +1625,185 @@ function scrollToAff(id, btn){
   const el = document.getElementById(id);
   if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
 }
+
+// ── Commission Design Table ──
+const COMM_DATA = [
+  {name:"L· Blackmores Bio C 1000mg Daily Imu+ 1000 . +",cat:"Core Immunity",gmv:796056,lp:60,vp:32,px:580,cur:5,rec:12,d:7,tier:"Anchor",col:"#00837A",ch:"Live",b:false},
+  {name:"Blackmores Bio C 1000mg Daily Imu+ (EXP. 21/10/2",cat:"Core Immunity",gmv:796056,lp:60,vp:32,px:580,cur:7,rec:12,d:5,tier:"Anchor",col:"#00837A",ch:"Live",b:false},
+  {name:"Blackmores Omega Triple Daily",cat:"Core Others",gmv:241121,lp:43,vp:34,px:780,cur:5,rec:10,d:5,tier:"High",col:"#1B2A4A",ch:"Mixed",b:false},
+  {name:"L· Blackmores Bio Magnesium Advance + D3",cat:"Move",gmv:239914,lp:32,vp:52,px:300,cur:5,rec:10,d:5,tier:"High",col:"#1B2A4A",ch:"Video",b:false},
+  {name:"Blackmores Bio C Acerola Plus 1500mg",cat:"Core Beauty",gmv:224561,lp:20,vp:56,px:280,cur:10,rec:12,d:2,tier:"Beauty Core",col:"#7C3AED",ch:"Video",b:true},
+  {name:"Blackmores Astaxanthin 6mg Plus (30cap)",cat:"Core Beauty",gmv:159452,lp:54,vp:25,px:400,cur:10,rec:12,d:2,tier:"Beauty Core",col:"#7C3AED",ch:"Live",b:true},
+  {name:"Blackmores Bio Magnesium Advance + D3 (B)",cat:"Move",gmv:155730,lp:33,vp:43,px:310,cur:5,rec:10,d:5,tier:"High",col:"#1B2A4A",ch:"Video",b:false},
+  {name:"Blackmores Omega DHA",cat:"Core Others",gmv:123615,lp:31,vp:51,px:750,cur:5,rec:10,d:5,tier:"High",col:"#1B2A4A",ch:"Video",b:false},
+  {name:"L· Blackmores Biotin H+ (60tab)",cat:"Core Beauty",gmv:115192,lp:48,vp:29,px:520,cur:5,rec:12,d:7,tier:"Beauty Core",col:"#7C3AED",ch:"Mixed",b:true},
+  {name:"Blackmores Biotin H+ (60tab)",cat:"Core Beauty",gmv:106763,lp:20,vp:62,px:560,cur:5,rec:12,d:7,tier:"Beauty Core",col:"#7C3AED",ch:"Video",b:true},
+  {name:"Beauty Within Bundle (Astax + Collagen)",cat:"Core Beauty",gmv:103709,lp:53,vp:30,px:1300,cur:5,rec:12,d:7,tier:"Beauty Core",col:"#7C3AED",ch:"Live",b:true},
+  {name:"Blackmores Marine Collagen Absolute (30cap)",cat:"Core Beauty",gmv:96110,lp:64,vp:15,px:710,cur:10,rec:12,d:2,tier:"Beauty Core",col:"#7C3AED",ch:"Live",b:true},
+  {name:"Blackmores Fish Oil 1000mg (80cap)",cat:"Core Others",gmv:86919,lp:25,vp:44,px:380,cur:5,rec:10,d:5,tier:"High",col:"#1B2A4A",ch:"Video",b:false},
+  {name:"Blackmores Multivitamin Active (50tab)",cat:"Core Everyday Health",gmv:79595,lp:61,vp:20,px:420,cur:5,rec:9,d:4,tier:"Growth",col:"#0369A1",ch:"Live",b:false},
+  {name:"Blackmores Bio Calcium+D3 (120tab)",cat:"Move",gmv:68018,lp:44,vp:17,px:510,cur:5,rec:9,d:4,tier:"Growth",col:"#0369A1",ch:"Mixed",b:false},
+  {name:"L· Blackmores Bio C Acerola Plus 1500mg",cat:"Core Beauty",gmv:64254,lp:59,vp:25,px:260,cur:5,rec:12,d:7,tier:"Beauty Core",col:"#7C3AED",ch:"Live",b:true},
+  {name:"Blackmores Bio C 1000mg Daily Imu+ (30cap)",cat:"Core Immunity",gmv:56383,lp:29,vp:44,px:280,cur:5,rec:9,d:4,tier:"Growth",col:"#0369A1",ch:"Video",b:false},
+  {name:"L· Blackmores Astaxanthin 6mg Plus (60cap)",cat:"Core Beauty",gmv:48837,lp:68,vp:16,px:780,cur:5,rec:12,d:7,tier:"Beauty Core",col:"#7C3AED",ch:"Live",b:true},
+  {name:"Blackmores Bio C 1000mg Daily Imu+ (60cap)",cat:"Core Immunity",gmv:40806,lp:30,vp:28,px:440,cur:5,rec:9,d:4,tier:"Growth",col:"#0369A1",ch:"Mixed",b:false},
+  {name:"L· Blackmores Fish Oil 1000mg (200cap)",cat:"Core Others",gmv:37412,lp:62,vp:8,px:680,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Live",b:false},
+  {name:"Blackmores Choles-Bloc",cat:"Core Others",gmv:37279,lp:42,vp:35,px:580,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Mixed",b:false},
+  {name:"Blackmores 9+ Care Gold (60cap)",cat:"Core Others",gmv:35310,lp:27,vp:52,px:520,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Video",b:false},
+  {name:"L· Blackmores 9+ Care Gold (60cap)",cat:"Core Others",gmv:35310,lp:27,vp:52,px:520,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Video",b:false},
+  {name:"Blackmores Multivitamin Active (30tab)",cat:"Core Everyday Health",gmv:34812,lp:41,vp:34,px:270,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Mixed",b:false},
+  {name:"L· Blackmores Bio Calcium+D3 (120tab)",cat:"Move",gmv:33132,lp:33,vp:35,px:470,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Mixed",b:false},
+  {name:"L· Blackmores Vis' Care Pro + Lutein",cat:"Core Eye Health",gmv:33030,lp:47,vp:31,px:430,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Mixed",b:false},
+  {name:"L· Blackmores Biotin H+ 2x60tab",cat:"Core Beauty",gmv:32582,lp:57,vp:11,px:880,cur:5,rec:12,d:7,tier:"Beauty Core",col:"#7C3AED",ch:"Live",b:true},
+  {name:"Blackmores Vis' Care Pro + Lutein",cat:"Core Eye Health",gmv:32437,lp:54,vp:16,px:460,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Live",b:false},
+  {name:"L· Blackmores Bio C 1000mg Daily Imu+",cat:"Core Immunity",gmv:32050,lp:24,vp:49,px:280,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Video",b:false},
+  {name:"Blackmores Fish Oil Mini 500mg",cat:"Core Others",gmv:30685,lp:45,vp:20,px:350,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Mixed",b:false},
+  {name:"Everyday Vitality Bundle BIO C 1000mg",cat:"Core Everyday Health",gmv:30328,lp:48,vp:19,px:780,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Mixed",b:false},
+  {name:"Blackmores Bio C 1000mg Daily Imu+ (120cap)",cat:"Core Immunity",gmv:28370,lp:35,vp:17,px:620,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Mixed",b:false},
+  {name:"Blackmores Lecithin 1200",cat:"Core Others",gmv:27792,lp:24,vp:39,px:310,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Mixed",b:false},
+  {name:"Blackmores Evening Primrose Oil 1000mg",cat:"Core Others",gmv:27578,lp:41,vp:23,px:350,cur:10,rec:7,d:-3,tier:"Standard",col:"#6B7280",ch:"Mixed",b:false},
+  {name:"Blackmores Grape Seed Forte 12000mg",cat:"Core Beauty",gmv:26975,lp:53,vp:17,px:490,cur:10,rec:10,d:0,tier:"Beauty",col:"#A855F7",ch:"Live",b:true},
+  {name:"Blackmores Probiotics+ Daily Balance",cat:"Core Everyday Health",gmv:26445,lp:30,vp:40,px:940,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Video",b:false},
+  {name:"Blackmores Zinc A Chelate",cat:"Core Beauty",gmv:22969,lp:30,vp:44,px:410,cur:5,rec:10,d:5,tier:"Beauty",col:"#A855F7",ch:"Video",b:true},
+  {name:"L· Blackmores Probiotics+ Daily Balance",cat:"Core Everyday Health",gmv:21808,lp:60,vp:23,px:870,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Live",b:false},
+  {name:"L· Blackmores Multivitamin Nutri 50+",cat:"Core Everyday Health",gmv:21721,lp:56,vp:15,px:530,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Live",b:false},
+  {name:"L· Blackmores Omega DHA",cat:"Core Others",gmv:21281,lp:68,vp:18,px:1180,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Live",b:false},
+  {name:"L· Blackmores Multivitamin Active",cat:"Core Everyday Health",gmv:20782,lp:36,vp:38,px:250,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Mixed",b:false},
+  {name:"Blackmores Ginkgo",cat:"Core Others",gmv:20011,lp:34,vp:42,px:280,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Video",b:false},
+  {name:"L· Blackmores Fish Oil Mini 500mg (A)",cat:"Core Others",gmv:19928,lp:54,vp:7,px:490,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Live",b:false},
+  {name:"L· Blackmores Lecithin 1200",cat:"Core Others",gmv:19414,lp:33,vp:38,px:300,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Mixed",b:false},
+  {name:"L· Blackmores Bio C 500mg Chewable",cat:"Core Immunity",gmv:19285,lp:27,vp:26,px:330,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Mixed",b:false},
+  {name:"Blackmores Bio C 500mg Chewable (EXP.)",cat:"Core Immunity",gmv:19285,lp:27,vp:26,px:330,cur:7,rec:7,d:0,tier:"Standard",col:"#6B7280",ch:"Mixed",b:false},
+  {name:"Blackmores Marine Collagen Absolute (premium)",cat:"Core Beauty",gmv:19224,lp:46,vp:24,px:1370,cur:10,rec:10,d:0,tier:"Beauty",col:"#A855F7",ch:"Mixed",b:true},
+  {name:"Blackmores Bio Zinc A Chelate",cat:"Core Beauty",gmv:18853,lp:28,vp:35,px:200,cur:5,rec:10,d:5,tier:"Beauty",col:"#A855F7",ch:"Mixed",b:true},
+  {name:"L· Blackmores Fish Oil Mini 500mg (B)",cat:"Core Others",gmv:17440,lp:53,vp:16,px:310,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Live",b:false},
+  {name:"L· Blackmores Fish Oil 1000mg",cat:"Core Others",gmv:17263,lp:67,vp:13,px:780,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Live",b:false},
+  {name:"Blackmores Bio Calcium+D3 (small)",cat:"Move",gmv:15621,lp:15,vp:60,px:260,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Video",b:false},
+  {name:"L· Blackmores Multivitamin Active (L)",cat:"Core Everyday Health",gmv:15088,lp:69,vp:0,px:790,cur:5,rec:7,d:2,tier:"Standard",col:"#6B7280",ch:"Live",b:false},
+  {name:"Blackmores Bio C 500mg Chewable",cat:"Core Immunity",gmv:14417,lp:52,vp:19,px:360,cur:5,rec:6,d:1,tier:"Watch",col:"#D97706",ch:"Live",b:false},
+  {name:"L· Blackmores Bio C 1000mg Imu+ (var)",cat:"Core Immunity",gmv:13040,lp:32,vp:31,px:380,cur:5,rec:6,d:1,tier:"Watch",col:"#D97706",ch:"Mixed",b:false},
+  {name:"Blackmores Bilberry 2500",cat:"Core Eye Health",gmv:12196,lp:43,vp:27,px:420,cur:5,rec:6,d:1,tier:"Watch",col:"#D97706",ch:"Mixed",b:false},
+  {name:"Blackmores Fish Oil 1000mg (large)",cat:"Core Others",gmv:12094,lp:34,vp:6,px:710,cur:5,rec:6,d:1,tier:"Watch",col:"#D97706",ch:"Mixed",b:false},
+  {name:"Blackmores Multivitamin Nutri 50+",cat:"Core Everyday Health",gmv:11988,lp:48,vp:11,px:330,cur:5,rec:6,d:1,tier:"Watch",col:"#D97706",ch:"Mixed",b:false},
+  {name:"L· Blackmores Bio C 500mg Chewable (var)",cat:"Core Immunity",gmv:11624,lp:28,vp:30,px:220,cur:5,rec:6,d:1,tier:"Watch",col:"#D97706",ch:"Mixed",b:false},
+  {name:"L· Blackmores Ginkgo",cat:"Core Others",gmv:11557,lp:24,vp:18,px:280,cur:5,rec:6,d:1,tier:"Watch",col:"#D97706",ch:"Mixed",b:false},
+  {name:"Blackmores Bio C Gluta Imu+",cat:"Core Beauty",gmv:10502,lp:50,vp:30,px:500,cur:10,rec:10,d:0,tier:"Beauty",col:"#A855F7",ch:"Live",b:true},
+  {name:"Bio C Gluta Imu+ (EXP.)",cat:"Core Beauty",gmv:10502,lp:50,vp:30,px:500,cur:7,rec:10,d:3,tier:"Beauty",col:"#A855F7",ch:"Live",b:true},
+  {name:"Blackmores Join Plus UC II",cat:"Move",gmv:10234,lp:52,vp:18,px:510,cur:5,rec:6,d:1,tier:"Watch",col:"#D97706",ch:"Live",b:false},
+  {name:"Blackmores Lutein-Vis",cat:"Core Eye Health",gmv:10211,lp:48,vp:18,px:600,cur:5,rec:6,d:1,tier:"Watch",col:"#D97706",ch:"Mixed",b:false},
+  {name:"Blackmores Bio C 500mg Chewable (var)",cat:"Core Immunity",gmv:7649,lp:41,vp:44,px:210,cur:5,rec:6,d:1,tier:"Watch",col:"#D97706",ch:"Video",b:false},
+  {name:"L· Blackmores Bio C Gluta Imu+",cat:"Core Beauty",gmv:6610,lp:51,vp:15,px:470,cur:5,rec:10,d:5,tier:"Beauty",col:"#A855F7",ch:"Live",b:true},
+  {name:"Blackmores Cranberry 15000 + C",cat:"Core Others",gmv:6365,lp:49,vp:30,px:420,cur:10,rec:6,d:-4,tier:"Watch",col:"#D97706",ch:"Mixed",b:false},
+  {name:"L· Blackmores Multivitamin Nutri 50+ (var)",cat:"Core Everyday Health",gmv:5746,lp:45,vp:20,px:320,cur:5,rec:6,d:1,tier:"Watch",col:"#D97706",ch:"Mixed",b:false},
+  {name:"L· Blackmores Lutein-Vis",cat:"Core Eye Health",gmv:5727,lp:64,vp:18,px:520,cur:5,rec:6,d:1,tier:"Watch",col:"#D97706",ch:"Live",b:false},
+  {name:"Blackmores Bio C 1000mg + Bio C 500mg Bundle",cat:"Core Immunity",gmv:4704,lp:58,vp:11,px:470,cur:5,rec:5,d:0,tier:"Trim",col:"#DC2626",ch:"Live",b:false},
+  {name:"L· Blackmores Bio C Gluta Imu+ (var)",cat:"Core Beauty",gmv:4302,lp:59,vp:0,px:860,cur:5,rec:7,d:2,tier:"Beauty-Low",col:"#A855F7",ch:"Live",b:true},
+  {name:"Blackmores Fish Oil Mini 500mg (C)",cat:"Core Others",gmv:3437,lp:22,vp:19,px:200,cur:5,rec:5,d:0,tier:"Trim",col:"#DC2626",ch:"Mixed",b:false},
+  {name:"L· Blackmores Bio Zinc A Chelate",cat:"Core Beauty",gmv:2345,lp:0,vp:34,px:780,cur:5,rec:7,d:2,tier:"Beauty-Low",col:"#A855F7",ch:"Mixed",b:true},
+  {name:"Blackmores Marine Collagen Absolute (entry)",cat:"Core Beauty",gmv:2049,lp:100,vp:0,px:2050,cur:5,rec:7,d:2,tier:"Beauty-Low",col:"#A855F7",ch:"Live",b:true},
+  {name:"Astaxanthin + Grape Seed Bundle",cat:"Core Beauty",gmv:1810,lp:0,vp:0,px:910,cur:7,rec:7,d:0,tier:"Beauty-Low",col:"#A855F7",ch:"Mixed",b:true},
+  {name:"Multivitamin Active + Bio C Bundle",cat:"Core Everyday Health",gmv:610,lp:0,vp:0,px:610,cur:7,rec:5,d:-2,tier:"Trim",col:"#DC2626",ch:"Mixed",b:false},
+  {name:"Fish Oil 1000mg + Multivitamin Bundle",cat:"Core Others",gmv:0,lp:0,vp:0,px:0,cur:7,rec:5,d:-2,tier:"Trim",col:"#DC2626",ch:"Mixed",b:false},
+];
+
+let commFilter = 'all';
+let commSelected = new Set();
+
+function filterComm(f, btn){
+  commFilter = f;
+  document.querySelectorAll('#aff-comm .msel-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
+  renderCommTable();
+}
+
+function clearCommSearch(){
+  const inp = document.getElementById('commSearch');
+  if(inp){ inp.value = ''; }
+  const clr = document.getElementById('commClearSearch');
+  if(clr) clr.style.display = 'none';
+  renderCommTable();
+}
+
+function clearCommSel(){
+  commSelected.clear();
+  // If we're in selected-filter mode, go back to all
+  if(commFilter === 'selected'){
+    commFilter = 'all';
+    document.querySelectorAll('#aff-comm .msel-btn').forEach(b=>b.classList.remove('active'));
+    const allBtn = document.querySelector('#aff-comm .msel-btn');
+    if(allBtn) allBtn.classList.add('active');
+  }
+  renderCommTable();
+}
+
+function renderCommTable(){
+  const tbody = document.getElementById('commTbody');
+  if(!tbody) return;
+
+  // Search term
+  const searchInp = document.getElementById('commSearch');
+  const searchTerm = searchInp ? searchInp.value.trim().toLowerCase() : '';
+  const clearBtn = document.getElementById('commClearSearch');
+  if(clearBtn) clearBtn.style.display = searchTerm ? 'inline-block' : 'none';
+
+  // Update selection badge
+  const selCount = commSelected.size;
+  const selBadge = document.getElementById('commSelCount');
+  if(selBadge) selBadge.textContent = selCount;
+  const selBtn = document.getElementById('commSelBtn');
+  if(selBtn) selBtn.style.display = selCount > 0 ? 'inline-block' : 'none';
+  const clearSelBtn = document.getElementById('commClearSelBtn');
+  if(clearSelBtn) clearSelBtn.style.display = selCount > 0 ? 'inline-block' : 'none';
+
+  // Base filter
+  let data = COMM_DATA;
+  if(commFilter==='beauty')   data = data.filter(d=>d.b);
+  if(commFilter==='live')     data = data.filter(d=>d.ch==='Live');
+  if(commFilter==='video')    data = data.filter(d=>d.ch==='Video');
+  if(commFilter==='trim')     data = data.filter(d=>d.rec<=6);
+  if(commFilter==='selected') data = data.filter(d=>commSelected.has(d.name));
+
+  // Search filter (applied after category/tier filter)
+  if(searchTerm) data = data.filter(d=>d.name.toLowerCase().includes(searchTerm));
+
+  const deltaColor = d => d.d>0?'#16A34A':d.d<0?'#DC2626':'#6B7280';
+  const deltaArrow = d => d.d>0?'▲':d.d<0?'▼':'=';
+
+  tbody.innerHTML = data.map((d,i)=>{
+    const isSel = commSelected.has(d.name);
+    const rowBg = isSel
+      ? 'background:#FFFBEB;outline:2px solid #F59E0B;outline-offset:-2px;'
+      : (i%2 ? 'background:var(--grey-bg);' : '');
+    return `
+    <tr data-name="${d.name.replace(/"/g,'&quot;')}" onclick="toggleCommSel(this,'${d.name.replace(/'/g,'\\\'')}')"
+        style="cursor:pointer;transition:background 0.15s;${rowBg}"
+        onmouseover="if(!this.classList.contains('comm-sel'))this.style.background='#F0FDFA';"
+        onmouseout="this.style.background='${isSel?'#FFFBEB':i%2?'var(--grey-bg)':''}'; ">
+      <td style="color:#9CA3AF;font-size:11px;">${i+1}</td>
+      <td><strong>${d.name}</strong>${isSel?' <span style="font-size:10px;color:#F59E0B;">📌</span>':''}<br><span style="font-size:10px;color:#9CA3AF;">${d.cat}</span></td>
+      <td style="font-size:12px;">~฿${d.px?d.px.toLocaleString():'-'}</td>
+      <td style="font-size:12px;">฿${d.gmv>=1000?(d.gmv/1000).toFixed(0)+'K':'<1K'}</td>
+      <td><span style="color:${d.lp>=50?'var(--teal)':'#6B7280'};font-weight:${d.lp>=50?700:400}">${d.lp}%</span></td>
+      <td><span style="color:${d.vp>=40?'#1B2A4A':'#6B7280'};font-weight:${d.vp>=40?700:400}">${d.vp}%</span></td>
+      <td><span style="font-size:11px;padding:2px 8px;border-radius:12px;background:${d.ch==='Live'?'#CCFBF1':d.ch==='Video'?'#DBEAFE':'#F3F4F6'};color:${d.ch==='Live'?'#065F46':d.ch==='Video'?'#1E40AF':'#374151'}">${d.ch}</span></td>
+      <td style="font-size:13px;color:#6B7280;">${d.cur}%</td>
+      <td style="font-weight:800;font-size:15px;color:${d.col}">${d.rec}%</td>
+      <td style="font-weight:700;color:${deltaColor(d)}">${deltaArrow(d)} ${d.d>0?'+':''}${d.d!==0?d.d+'%':'same'}</td>
+      <td><span style="font-size:10px;padding:2px 8px;border-radius:12px;background:${d.col}22;color:${d.col};font-weight:700;">${d.tier}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+function toggleCommSel(row, name){
+  if(commSelected.has(name)){
+    commSelected.delete(name);
+  } else {
+    commSelected.add(name);
+  }
+  renderCommTable();
+}
+
+renderCommTable();
 
 // Legacy affTable (hidden div, kept for compatibility)
 const affTbody = document.getElementById('affTable');
